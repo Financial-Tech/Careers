@@ -1,1456 +1,853 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US" prefix="og: http://ogp.me/ns#" class="html_stretched responsive av-preloader-disabled av-default-lightbox  html_header_top html_logo_left html_main_nav_header html_menu_right html_custom html_header_sticky html_header_shrinking_disabled html_header_topbar_active html_header_transparency html_mobile_menu_phone html_header_mobile_behavior html_header_searchicon_disabled html_content_align_center html_header_unstick_top_disabled html_header_stretch html_entry_id_5329 ">
+<head><link rel="stylesheet" href="https://www.lntinfotech.com/wp-content/cache/minify/5314a.default.include.aa5d42.css" media="all" />
 
-<head>
-    <meta charset="utf-8">
-<meta http-equiv="Content-Language" content="hu-HU" />
-<!--meta name="robots" content="all,noindex,nofollow"-->
-<!--meta name="googlebot" content="noindex,nofollow,snippet,archive"-->
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script type='application/ld+json'>{"@context":"https:\/\/schema.org","@type":"Organization","url":"https:\/\/www.lntinfotech.com\/","sameAs":["http:\/\/facebook.com\/LarsenToubroInfotech\/","https:\/\/www.linkedin.com\/company\/l&t-infotech","https:\/\/www.youtube.com\/user\/LarsenToubroInfotech","https:\/\/twitter.com\/LTI_Global"],"@id":"https:\/\/www.lntinfotech.com\/#organization","name":"LTI","logo": "@context": "http://schema.org","@type": "Organization","url": "https:\/www.lntinfotech.com","logo": "https: \/www.lntinfotech.com/wp-content/uploads/2017/06/LTI_Lets_solve.png"}</script>
+
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	
+<meta property="og:image" content="https://www.lntinfotech.com/wp-content/uploads/2019/08/Breakaway-banner.jpg"/>
+
+
+<!-- mobile setting -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- Scripts/CSS and wp_head hook -->
+<title>Careers | LTI, L&amp;T (Larsen Toubro Group Company)</title>
 
-<meta name="description" content="">
+	<style>
+		.wpcf7-submit{
+			display:none;
+		}
+		.recaptcha-btn{
+			display:block;
+		}
+		.grecaptcha-badge {display: none;} 
+	</style>
+	<script type="text/javascript">
+		var contactform = [];
+		var checkIfCalled = true;
+		var renderGoogleInvisibleRecaptchaFront = function() {
+			// prevent form submit from enter key
+			jQuery("input[name=_wpcf7]").attr("class","formid");
+				jQuery('.wpcf7-form').on('keyup keypress', "input", function(e) {
+				  var keyCode = e.keyCode || e.which;
+				  if (keyCode === 13) {
+					e.preventDefault();
+					return false;
+				  }
+				});
 
-<!-- Open Graph Tags -->
-<meta property="og:title" content="" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://www.dataexpert.hu/" />
-<meta property="og:image" content="" />
+			jQuery('.wpcf7-submit').each(function(index){
 
-<meta name="description" content="">
-<meta name="author" content="DataExpert">
+				var checkexclude = 0;
+				var form = jQuery(this).closest('.wpcf7-form');
+				var value = jQuery(form).find(".formid").val();
+				// check form exclude from invisible recaptcha
+								if(checkexclude == 0){
+					// Hide the form orig submit button
+					form.find('.wpcf7-submit').hide();
 
-<meta name="keywords" content="">
-<title>DataExpert</title>
-<base href="https://www.dataexpert.hu/" />
+					// Fetch class and value of orig submit button
+					btnClasses = form.find('.wpcf7-submit').attr('class');
+					btnValue = form.find('.wpcf7-submit').attr('value');
 
-<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&amp;subset=latin-ext" rel="stylesheet">
+					// Add custom button and recaptcha holder
 
-<!-- Font Awesome Icons -->
-<link type="text/css" rel="stylesheet" href="templates/dataexpert/assets/vendor/font-awesome/4.7/css/font-awesome.min.css">
-<!-- Latest compiled and minified CSS -->
-<link type="text/css" rel="stylesheet" href="templates/dataexpert/assets/css/bootstrap.min.css">
-<!-- Optional theme -->
-<link type="text/css" rel="stylesheet" href="templates/dataexpert/assets/css/jquery.roadmap.min.css">
-<link type="text/css" rel="stylesheet" href="templates/dataexpert/assets/css/dataexpert.css">
+					form.find('.wpcf7-submit').after('<input type="button" id="wpcf-custom-btn-'+index+'" class="'+btnClasses+'  recaptcha-btn recaptcha-btn-type-css" value="'+btnValue+'" title="'+btnValue+'" >');
+					form.append('<div class="recaptcha-holder" id="recaptcha-holder-'+index+'"></div>');
+					// Recaptcha rendenr from here
+					var holderId = grecaptcha.render('recaptcha-holder-'+index,{
+								'sitekey':'6Lcf9aoUAAAAAF-6QoSXRBs_e5MvtDkC-g2jr3eq',
+								'size': 'invisible',
+								'badge' : 'inline', // possible values: bottomright, bottomleft, inline
+								'callback' : function (recaptchaToken) {
+									//console.log(recaptchaToken);
+									var response=jQuery('#recaptcha-holder-'+index).find('.g-recaptcha-response').val();
+									//console.log(response);
+									//Remove old response and store new respone
+									jQuery('#recaptcha-holder-'+index).parent().find(".respose_post").remove();
+									jQuery('#recaptcha-holder-'+index).after('<input type="hidden" name="g-recaptcha-response"  value="'+response+'" class="respose_post">')
+									grecaptcha.reset(holderId);
 
-<link rel="stylesheet" href="templates/dataexpert/assets/css/custom.css">
+									if(typeof customCF7Validator !== 'undefined'){
+										if(!customCF7Validator(form)){
+											return;
+										}
+									}
+									// Call default Validator function
+									else if(contactFormDefaultValidator(form)){
+										return;
+									}
+									else{
+										// hide the custom button and show orig submit button again and submit the form
+										jQuery('#wpcf-custom-btn-'+index).hide();
+										form.find('input[type=submit]').show();
+										form.find("input[type=submit]").click();
+										form.find('input[type=submit]').hide();
+										jQuery('#wpcf-custom-btn-'+index).attr('style','');
+									}
+								}
+						},false);
 
-<link rel="shortcut icon" href="images/favicon.png"></head>
-
-<body id="mainTop">
-	
-	    	<nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.php"><img src="img/logo.jpg"></a>
-        </div>
-    
-        
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a class="smoothScroll" href="#mainTop">Home</a></li>
-            <li><a class="smoothScroll" href="#services">Services</a></li>
-            <li><a class="smoothScroll" href="#demos">Demos</a></li>
-            <li><a class="smoothScroll" href="#tools">Tools</a></li>
-            <li><a class="smoothScroll" href="#team">Team</a></li>
-            <li><a class="smoothScroll" href="#careers">Careers</a></li>
-            <!--li><a href="">Blog & Social</a></li-->
-            <li><a class="smoothScroll" href="#blog">Blog & Social</a></li>
-            <li><a class="smoothScroll" href="#events">Events</a></li>
-            <li><a class="smoothScroll" href="#testimonials">Testimonials</a></li>
-            <li><a class="smoothScroll" href="#contactUs">Contact</a></li>
-                      </ul>
-        </div>
-      </div>
-    </nav>
-
-<div class="wrapper">
-  
-  
-  <!-- main container of all the page elements -->
-  <div id="wrapper" class="wrapperMargin" >
-    
-    <div class="w1">
-      
-      <div id="mt-main">
-                <div class="containerSlider">
-  <img src="img/slider.jpg" alt="Avatar" class="image">
-  
-  <div class="overlay">
-    <div class="container">
-      <div class="sliderContent">
-        <h1>Experts of the <br class="hidden-xs">data-driven world</h1>
-        <p>Working for customers globally, based in Hungary, Debrecen.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<section id="services" class="bgColor3">
-
-  <div class="container">
-    
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <div class="blockTitle">
-          <h1>what we do</h1>
-          <i class="fa fa-circle" aria-hidden="true"></i>
-          <h2>Our competence is exceptional in the following areas.</h2>
-        </div>
-      </div>
-    </div>
-    
-    <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-3 text-center">
-          <a class="" href="https://www.dataexpert.hu/services/survey-programming-and-hosting">
-          <div class="circleContainer">
-            <img src="upload/images/tartalom/circle_icon_survey_programming.png" width="73">
-            <p>survey programming<br>and hosting</p>
-            <!--div class="text-center">
-            	<div class="button">details</div>
-            </div-->
-          </div>
-          </a>
-        </div>
-                <div class="col-xs-12 col-sm-6 col-md-3 text-center">
-          <a class="" href="https://www.dataexpert.hu/services/data-processing">
-          <div class="circleContainer">
-            <img src="upload/images/tartalom/circle_icon_data_processing.png" width="73">
-            <p>data<br>processing</p>
-            <!--div class="text-center">
-            	<div class="button">details</div>
-            </div-->
-          </div>
-          </a>
-        </div>
-                <div class="col-xs-12 col-sm-6 col-md-3 text-center">
-          <a class="" href="https://www.dataexpert.hu/services/data-visualization">
-          <div class="circleContainer">
-            <img src="upload/images/tartalom/circle_icon_data_visualization.png" width="73">
-            <p>data<br>visualization</p>
-            <!--div class="text-center">
-            	<div class="button">details</div>
-            </div-->
-          </div>
-          </a>
-        </div>
-                <div class="col-xs-12 col-sm-6 col-md-3 text-center">
-          <a class="" href="https://www.dataexpert.hu/services/graphic-design">
-          <div class="circleContainer">
-            <img src="upload/images/tartalom/circle_icon_graphic_design.png" width="73">
-            <p>graphic<br>design</p>
-            <!--div class="text-center">
-            	<div class="button">details</div>
-            </div-->
-          </div>
-          </a>
-        </div>
-            </div>
-    <br class="hidden-xs">
-    <div class="row">
-              <div class="col-xs-12 col-sm-4 col-md-4 text-center">
-          <a class="" href="https://www.dataexpert.hu/services/mr-technology-transition-support">
-          <div class="circleContainer circleRight">
-            <img src="upload/images/tartalom/circle_icon_mr_technology.png" width="73">
-            <p>MR technology <br>transition support</p>
-            <!--div class="text-center">
-            	<div class="button">details</div>
-            </div-->
-          </div>
-          </a>
-        </div>
-                <div class="col-xs-12 col-sm-4 col-md-4 text-center">
-          <a class="" href="https://www.dataexpert.hu/services/custom-it-development">
-          <div class="circleContainer ">
-            <img src="upload/images/tartalom/circle_icon_it_development.png" width="73">
-            <p>custom IT<br>development</p>
-            <!--div class="text-center">
-            	<div class="button">details</div>
-            </div-->
-          </div>
-          </a>
-        </div>
-                <div class="col-xs-12 col-sm-4 col-md-4 text-center">
-          <a class="" href="https://www.dataexpert.hu/services/big-data">
-          <div class="circleContainer circleLeft">
-            <img src="upload/images/tartalom/circle_icon_big_data.png" width="73">
-            <p>Business<br>Intelligence</p>
-            <!--div class="text-center">
-            	<div class="button">details</div>
-            </div-->
-          </div>
-          </a>
-        </div>
-            </div>
-    
-  </div>
-
-</section>
-
-
-<div id="demos" class="parallax-one">
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <div class="blockTitle">
-          <h1>visualization demos</h1>
-          <i class="fa fa-circle" aria-hidden="true"></i>
-          <h2>Industry leading and truly powerful reporting solutions by DataExpert.</h2>
-        </div>
-      </div>
-    </div>
-    
-    <div class="row">
-      <div class="col-md-6">
-        <div style="background-color:#17354f;">
-                    <div class="row">
-            <div class="col-xs-12 col-sm-6">
-            	<div class="item">
-              	<a href="https://www.dataexpert.hu/demos/online-solution-for-reporting"><img src="upload/images/tartalom/demo_01.jpg" width="100%"></a>
-            	</div>
-            </div>
-            <div class="col-xs-12 col-sm-6 text-left paraBoxContent">
-                <div class="parent">
-                  <div class="absoluteNo right">
-                    <h3>Online solution for reporting</h3>
-                    <p>Searching for a powerful and effective reporting tool which transforms your data into business decisions?</p>
-                 	</div>
-                  <div class="absolute right">
-                    <a class="readMoreDemo" href="https://www.dataexpert.hu/demos/online-solution-for-reporting">READ MORE ></a>
-                  </div>
-                </div>
-            </div>
-          </div>
-        </div>
-        <br>
-      </div>
-      <div class="col-md-6">
-        <div style="background-color:#f69546;">
-                    <div class="row">
-            <div class="col-xs-12 col-sm-6">
-            	<div class="item">
-              	<a href="https://www.dataexpert.hu/demos/powerpoint-presentation"><img src="upload/images/tartalom/demo_02.jpg" width="100%"></a>
-            	</div>
-            </div>
-            <div class="col-xs-12 col-sm-6 text-left paraBoxContent">
-                <div class="parent">
-                  <div class="absoluteNo right">
-                    <h3>PowerPoint presentation</h3>
-                    <p>Want to reduce the time of the report preparation to be able to spend more time with the analysis?</p>
-                  </div>
-                  <div class="absolute right">
-                    <a class="readMoreDemo" href="https://www.dataexpert.hu/demos/powerpoint-presentation">READ MORE ></a>
-                  </div>
-                </div>
-            </div>
-          </div>
-        </div>
-        <br>
-      </div>
-    </div>
-    
-    <div class="row">
-      <div class="col-md-6">
-        <div style="background-color:#f1c912;">
-                    <div class="row">
-            <div class="col-xs-12 col-sm-6">
-            	<div class="item">
-              	<a href="https://www.dataexpert.hu/demos/business-intelligence"><img src="upload/images/tartalom/demo_03.jpg" width="100%"></a>
-            	</div>
-            </div>
-            <div class="col-xs-12 col-sm-6 text-left paraBoxContent">
-                <div class="parent">
-                  <div class="absoluteNo right">
-                    <h3>Business Intelligence</h3>
-                    <p>Power BI is a Data Visualization and Business Intelligence tool that converts data from different data sources to interactive dashboards and BI reports.</p>
-                  </div>
-                  <div class="absolute right">
-                    <a class="readMoreDemo" href="https://www.dataexpert.hu/demos/business-intelligence">READ MORE ></a>
-                  </div>
-                </div>
-            </div>
-          </div>
-        </div>
-        <br>
-      </div>
-      <div class="col-md-6">
-        <div style="background-color:#344e81;">
-                    <div class="row">
-            <div class="col-xs-12 col-sm-6">
-            	<div class="item">
-              	<a href="https://www.dataexpert.hu/demos/online-visualization"><img src="upload/images/tartalom/demo_04.jpg" width="100%"></a>
-            	</div>
-            </div>
-            <div class="col-xs-12 col-sm-6 text-left paraBoxContent">
-                <div class="parent">
-                  <div class="absoluteNo right">
-                    <h3>Online visualization</h3>
-                    <p>Looking for a clean and simple online BI tool to manage and visualize your data?</p>
-                  </div>
-                  <div class="absolute right">
-                    <a class="readMoreDemo" href="https://www.dataexpert.hu/demos/online-visualization">READ MORE ></a>
-                  </div>
-                </div>
-            </div>
-          </div>
-        </div>
-        <br>
-      </div>
-    </div>
-    
-  </div>
-
-</div>
-
-<section id="tools" class="bgColor3">
-  
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <div class="blockTitle">
-                    <h1>software capabilities</h1>
-          <i class="fa fa-circle" aria-hidden="true"></i>
-          <h2><p>DataExpert uses the latest technologies available in the industry.</p>
-</h2>
-          <img src="upload/images/tartalom/Logos_new.png" width="100%">
-          
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section  id="team" class="bgColor2" style="padding-bottom:0px;">
-  
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <div class="blockTitle">
-                    <h1>who we are</h1>
-          <i class="fa fa-circle" aria-hidden="true"></i>
-          <h2><p>There is a team behind each of our success stories. DataExpert has over 75 colleagues moving forward together.</p>
-</h2>
-        </div>
-      </div>
-    </div>
-  </div>
-  <img src="upload/images/tartalom/whoweare.jpg" width="100%">
-</section>
-
-<section id="careers" class="bgColor3">
-  
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <div class="blockTitle">
-                    <h1>work with us</h1>
-          <i class="fa fa-circle" aria-hidden="true"></i>
-          <h2><p>Looks interesting? Good news: our team is growing and we regularly&nbsp;have open positions. If you can imagine yourself working with us, have a look at the careers section.</p>
-</h2>
-          <a class="buttonBig" href="https://www.dataexpert.hu/positions/">open positions</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<div id="blog" class="containerGreenMap">
-    <img src="upload/images/tartalom/green-map.jpg" alt="" class="image">
-  <div class="overlay">
-    <div class="container">
-      <div class="greenMapContent">
-        <h1>We work, we learn, we play. Together.</h1>
-        <p>&hellip;and we blog about all these in Hungarian,<br />
-so you can get some more insights of the DataExpert life.</p>
-        <br>
-        <a href="https://www.dataexpert.hu/blog/" class="icon" title="">
-          DataExpert blog ›
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-<section id="social" class="bgColor3" style="padding-bottom:0px;">
-    
-	<div class="container">
-  	<div class="row">
-    	<div class="col-md-12 text-center">
-      	<div class="blockTitle">
-            
-          <p><strong>If you want to get to know more about us, have a look at<br>
-  our social media profiles:</strong></p>
-  
-          <div class="row socialBigIcons">
-            <div class="col-xs-4 text-right">
-              <a href="https://hu-hu.facebook.com/dataexpert.services" target="_blank"><i class="fa fa-facebook facebook" aria-hidden="true"></i></a>
-            </div>
-            <div class="col-xs-4 text-center">
-              <a href="https://www.instagram.com/dataexpert_debrecen/" target="_blank"><i class="fa fa-instagram instagram" aria-hidden="true"></i></a>
-            </div>
-            <div class="col-xs-4 text-left">
-              <a href="https://www.linkedin.com/company/dataexpert-services" target="_blank"><i class="fa fa-linkedin linkedin" aria-hidden="true"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</section>
-
-<section id="events" class="bgColor3" style="padding-bottom:0px;">
-
-<div class="container">
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <div class="blockTitle">
-        <h1>meet us in person</h1>
-        <i class="fa fa-circle" aria-hidden="true"></i>
-        </div>
-        <div class="event-roadmap"></div>
-    </div>
-  </div>
-</div>
-
-</section>
-
-<section id="testimonials" class="bgColor3">
-    
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <div class="blockTitle">
-            
-                        <h1>customers & testimonials</h1>
-            <i class="fa fa-circle" aria-hidden="true"></i>
-            <h2><p>We approach our customers with consultant attitude when accomplishing hundreds of projects annually.</p>
-</h2>
-            
-            <div id="testimonial">
-              <div id="testimonialSlider" class="carousel slide" data-ride="carousel">
-                
-                                 
-                <ol class="carousel-indicators">
-								                  <li data-target="#testimonialSlider" data-slide-to="0" class="active" ></li>
-                                    <li data-target="#testimonialSlider" data-slide-to="1"  ></li>
-                                    <li data-target="#testimonialSlider" data-slide-to="2"  ></li>
-                                    <li data-target="#testimonialSlider" data-slide-to="3"  ></li>
-                                    <li data-target="#testimonialSlider" data-slide-to="4"  ></li>
-                                  </ol>
-                
-                <div class="carousel-inner">
-                    											<div class="item active" style="min-height:170px;">
-                        <p>DataExpert is one of our much appreciated research partners. We put our trust in their technical abilities to handle complex programming and sample management for difficult assignments. We like that they ask smart questions and make proactive suggestions. DataExpert strives for excellence and delivers great client service. We recommend them highly.</p>
-
-<p><strong>Wout Thuis, Innovation Officer, Blauw Research B.V.</strong></p>
-                      </div>
-																						<div class="item " style="min-height:170px;">
-                        <p>DataExpert truly understand the requirements of our clients. No project is too difficult and problems are not encountered only solutions. They adapt to all situations, they are very proactive and communicative, possessing a particular focus on Quality Data. Interaction at all levels has been truly professional and the attitude is 100% commitment to each and every project.</p>
-
-<p><strong>Colm Russell, Managing Partner, Dynamic Fieldwork</strong></p>
-                      </div>
-																						<div class="item " style="min-height:170px;">
-                        <p>We have been working with DataExpert for the best part of a decade during which they have provided us with a suite of solutions and efficiencies. Their work and outputs have always been of the highest quality and their continued innovation has allowed us to function seamlessly during a time of technological advancement. </p>
-
-<p><strong>Hady Al-Malazi, Client Manager, Kantar Millward Brown</strong></p>
-                      </div>
-																						<div class="item " style="min-height:170px;">
-                        <p>No matter what the situation is DataExpert is always willing to help and to find the best solution. DataExpert does have many years of experience in more complex Data Processing and Data Analyzing projects.</p>
-
-<p><strong>Erik Philippa, Managing Director, 2Gather</strong></p>
-                      </div>
-																						<div class="item " style="min-height:170px;">
-                        <p>We have worked with DataExpert for almost a year now, and our experience has been a thoroughly positive one. Their ability to run with new and unusual requirements and right-first-time deliverables, combined with an exceptional can-do attitude has made them our preferred provider of outsourced data processing and survey scripting services within a short period of time.</p>
-
-<p><strong>Michael Virks, Operations Director, YouthSight</strong></p>
-                      </div>
-											                </div>
-              </div>
-            </div>
-            
-            
-            <style>
-							img.resp {
-								display: block;
-								max-width: 100%;
-								height: auto;
+					// action call when click on custom button
+					jQuery('#wpcf-custom-btn-'+index).click(function(event){
+						event.preventDefault();
+						// Call custom validator function
+						if(typeof customCF7Validator == 'function'){
+							if(!customCF7Validator(form)){
+								return false;
 							}
-						</style>
-            
-
-            
-            <img src="img/logos_02.jpg" border="0" usemap="#Map" class="resp">
-            <map name="Map" id="Map">
-                <area shape="rect" coords="6,16,148,48" href="https://www.blauw.com/nl/" target="_blank" />
-                <area shape="rect" coords="253,11,390,55" href="https://www.m1nd-set.com/" target="_blank"  />
-                <area shape="rect" coords="501,4,633,67" href="https://www.inspiredinsight.io/" target="_blank"  />
-                <area shape="rect" coords="732,3,919,67" href="https://www.dynamicfieldwork.com/" target="_blank"  />
-                <area shape="rect" coords="1023,6,1169,56" href="https://www.yorizongroup.com/" target="_blank"  />
-                <area shape="rect" coords="2,121,139,177" href="http://www.kheolia.fr/" target="_blank"  />
-                <area shape="rect" coords="209,125,457,181" href="https://www.usp-mc.nl/nl/" target="_blank"  />
-                <area shape="rect" coords="526,130,700,169" href="http://www.tebbuttresearch.com/" target="_blank"  />
-                <area shape="rect" coords="769,125,922,172" href="https://www.kadence.com/" target="_blank"  />
-                <area shape="rect" coords="986,120,1166,178" href="https://www.watermelonresearch.com/" target="_blank"  />
-                <area shape="rect" coords="2,251,131,291" href="http://www.demoscope.ch/" target="_blank"  />
-                <area shape="rect" coords="183,231,298,314" href="https://www.storesupport.nl/" target="_blank"  />
-                <area shape="rect" coords="344,251,504,293" href="https://www.kynetec.com/" target="_blank"  />
-                <area shape="rect" coords="555,250,666,296" href="https://www.gdcc.com/" target="_blank"  />
-                <area shape="rect" coords="715,235,970,303" href="https://www.meridianwest.co.uk/" target="_blank"  />
-                <area shape="rect" coords="1020,247,1168,287" href="https://savanta.com/" target="_blank"  />
-                <area shape="rect" coords="5,381,171,418" href="https://www.kantar.com/" target="_blank"  />
-                <area shape="rect" coords="217,376,337,424" href="http://smartconnectresearch.com/" target="_blank"  />
-                <area shape="rect" coords="383,379,549,420" href="https://www.youthsight.com/" target="_blank"  />
-                <area shape="rect" coords="598,377,784,416" href="https://www.ampuls.ch" target="_blank"  />
-                <area shape="rect" coords="834,371,946,424" href="https://www.mrconsultants.sg/" target="_blank"  />
-                <area shape="rect" coords="1013,346,1167,423" href="https://painteddogresearch.com/" target="_blank"  />
-            </map>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-                <div id="contactUs" class="parallax-contact">
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <div class="blockTitle">
-          <h1>Interested in more? Contact us.</h1>
-          <i class="fa fa-circle" aria-hidden="true"></i>
-          <h2>If you would like to know more about us, our services and offers please send a message and we will get back to you.</h2>
-        </div>
-      </div>
-    </div>
-    
-    <div class="row">
-      <div class="col-md-4">
-        <i class="fa fa-location-arrow" aria-hidden="true"></i> Vendég street 84. 1/7. 4026 Debrecen, Hungary<br><br>
-        <i class="fa fa-phone" aria-hidden="true"></i> +36 52 212 380<br><br>
-        <i class="fa fa-envelope-open-o" aria-hidden="true"></i> contact@dataexpert.hu
-        <br><br><br><br><br>
-        <img src="img/logo_contact.png">
-      </div>
-      
-      <div class="col-md-4">
-        
-        
-        
-        <form id="contact-form" role="form" method="post" action="#contactUs">
-            <div class="ajax-hidden">
-              <input type="text" name="name" class="form-control" placeholder="Your name..." value=""><br>
-              <input type="text" name="email" class="form-control" placeholder="Your email..." value=""><br>
-              <input type="text" name="subject" class="form-control" placeholder="Subject..." value=""><br>
-              <textarea name="uzenet" class="form-control" placeholder="Message..." style="resize:none;"></textarea><br>
-              
-              <div class="row">
-                <div class="col-xs-4"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gA+Q1JFQVRPUjogZ2QtanBlZyB2MS4wICh1c2luZyBJSkcgSlBFRyB2NjIpLCBkZWZhdWx0IHF1YWxpdHkK/9sAQwAIBgYHBgUIBwcHCQkICgwUDQwLCwwZEhMPFB0aHx4dGhwcICQuJyAiLCMcHCg3KSwwMTQ0NB8nOT04MjwuMzQy/9sAQwEJCQkMCwwYDQ0YMiEcITIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy/8AAEQgAIgBuAwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/aAAwDAQACEQMRAD8A93aa4jcg2hkXPymKQE49w23H4Zpv9oWw/wBY7RD+9NG0Y+mWAGfam6o96lnjT41a4d1QM3SME8sR3wO1Z0FxfWOvW+n3N79tS5hdwTGqNGVx/d4wc/pWEnOLsn96/wArfqZtST0f3r/hjcVldAysGVhkEHIIpa4eW6uDYT60JoEkW6Mf2JIlVz8+3bvHz7yOevfpitXVLme31OKwttVNlEITPNNPtcIudoAL8kk56ntULES3cfuff1t+YlOXVGxe6hDY7FZZZZ5c+VBChd3xjt0AyQCzEKMjJGaptea4EMo0vT44sbv3+oMrKP8AaCxMoPrhiPc9azdEmvl1e+E8ltezypG0F2JAizQLkAKFBBKuzlvTzF9QBo6pqX2SCK4nsroRRSb3UKrbhg46Ej7xXqRzjHSur2tONk199/8AhvLfcupWjTW3be9tSS3v/wC0bg27mezfyxIbeSMpIykDPzfdIG4A7CSpIyQTir0VpbwOXihRXIwXA+Y/U9T+NZWp3MN3cabDaSK96t2siYOTEqg+aXXqAYy6cjhpF6HBFvUbe5cmePVpbOGNMuqxxsOMksSyk9P5U5SXKpx1TFyQsprX+uhck+Z1i7MCT7gY4/WpKwvDrajdWT3t3dPKsrbrVZI1VhH6naB978ccVdutasrKYQ3JnSUru2rA78dOqgjtWaqJx5noUnpcvSRxzRmOVFdD1VhkH8Kr/Y/K5tJPI/2MZj/757d+hHPXNJZalbaj5n2YynZjdvhePrn+8Bnp2qreJqt1qXkW0/2O0SPcZwiu0jk/dAOcAD2p8+l1qTKMZa2/r1NCGbzNysuyVPvpnOPceoPY/wAiCBLWDpF9PqDKkzJJcWl1JDJLGMB0CkbvbJ28eqn043qcZKSTQqcm7+Rma9rEeh6W92672LBI0JwGY9AT2HU/hWZ4dm097x55NTgvdXuV+cxtwijnYg7KP1rpqKhwbmpX0Ltrc8/AsF0qf7Usn/CTb3IIDecZcnYV/wBnp04xWtfRx2fiOw1TVkUwmy8lpCuUjmBzk+mQWANdLdXMNlZzXdw+yCCNpJGwTtVRknA56CpazVCy37f0yeXoczpGn2epHUpGtgdOluhLaAqVKsEAMiHgqc5wwwR2qv4h8J3V7p0/2XV9WllCBYrZp08sgHgHK5bA7sSTjkmuuoraKahyPVf13LTaVjEtvDtppss8ttbJcCYRiVZ2LudgKqQzZyQOMH161S8QLbtp6WkSXFt9pnSGTh0jjQn5/wDY6A9PXPvXUUVNSlCp8S179TGVG7uvxVylAkywobS7imhA+XegOccYDLgAcehx79Kp39tqVzKrCaeBAMBLUxOM88kyKCDz29O3fSksrSaQyS2sLuerNGCT+NM/s2x/58rb/v0v+FJ0Vayk1/XncnkqbL8/80zKtL+2tPNWfW7idl/hnhAKkHBHCgnr09qfqt1dT6RM0E0cEMihftMhMXDEDK9T3xyB2x61tqqogVVCqowABgAUyOCKJ3aOJEZzlyqgFj7+tCjJK1/z/wCCNQqvSUlbyVv1f6FXT9Mj02zS1tiI4kHGxRlj3JJzk1a8iM/fXefV+f8A9X4VJRWlkbJJKyCiiimMyfEf/IMh/wCv+z/9KY61qKKXUhfG/RfqFFFFMsKKKKACiiigAooooAKKKKAP/9k=" style="width: 110px;"  /></div>                <div class="col-xs-4">
-                <input class="form-control" type="hidden" name="data_c" value="293" />
-                <input class="form-control" type="text" name="code" value="" /></div>
-                <div class="col-xs-4"><input class="btn btn-success" type="submit" value="send" style="width:100%;"/></div>
-              </div>
-              <br>
-            </div>
-            <div class="ajax-response"></div>
-        </form>
-      </div>
-      
-      <div class="col-md-4">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m0!3m2!1sen!2sus!4v1485771795443!6m8!1m7!1sF%3A-5fiI4t4FdZ8%2FWIZQYdLBCTI%2FAAAAAAAAOVI%2F885SF_HJKX8OluHnp9yRL2Kc956YlQS7ACLIB!2m2!1d47.53379847819179!2d21.6127721965313!3f297!4f-13.340000000000003!5f0.4000000000000002" width="100%" height="260" frameborder="0" style="border:0" allowfullscreen></iframe>
-      </div>
-    </div>
-    
-  </div>
-
-</div>
-
-<div id="contact">
-<div class="map">
-    <div class="fixwidth">
-        <p>where to find us</p>
-        <!--a href="javascript: void(0);" class="get-directions">get directions</a-->
-        <a href="javascript: void(0);" class="buttonBig get-directions">Get directions</a>
-    </div>
-	<a class="ginop" href="/ginop" target="_blank"> </a>
-</div>
-<div class="google-map">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2693.7541816249213!2d21.612676999999998!3d47.5336486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47470e08a14dfc79%3A0xd74c10d50259b6e7!2sVend%C3%A9g+u.+84%2C+Debrecen%2C+4026!5e0!3m2!1shu!2shu!4v1434536254475" width="100%" height="400" frameborder="0" style="border:0;"></iframe>
-</div>
-</div>
-
-<footer>
-<div class="container text-center">
-  <p>
-  2019 © DataExpert Services Ltd. All rights reserved!<br><a href="./GDPR/GDPR.pdf">Privacy Policy</a>
-  </p>
-</div>
-</footer>
-              </div>
-    </div>
-    </div>
-</div>
-
-<a class="smoothScroll text-center" id="scrollUp" href="#mainTop"><i class="fa fa-arrow-up" aria-hidden="true"></i><br>Top</a></li>
-	<script src="//code.jquery.com/jquery-1.10.1.min.js"></script>
-<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-
-<link type="text/css" rel="stylesheet" href="htemplates/dataexpert/assets/css/staticpage.css">
-<link type="text/css" rel="stylesheet" href="templates/dataexpert/assets/css/twentytwenty.css">
-<script type="text/javascript" src="templates/dataexpert/assets/js/jquery.twentytwenty.js"></script>
-<script type="text/javascript" src="templates/dataexpert/assets/js/jquery.event.move.js"></script>
-    
-    <!-- Latest compiled and minified JavaScript -->
-    <script type="text/javascript" src="templates/dataexpert/assets/js/bootstrap.min.js"></script>  
-    
-    <script>
-		$(document).ready(function(){
-			// Add smooth scrolling to all links
-			$(".smoothScroll").on('click', function(event) {
-			
-				
-				var navMain = $(".navbar-collapse");
-			  navMain.on("click", "a:not([data-toggle])", null, function () {
-					 navMain.collapse('hide');
-			  });
-				
-				// Make sure this.hash has a value before overriding default behavior
-				if (this.hash !== "") {
-					// Prevent default anchor click behavior
-					event.preventDefault();
-		
-					// Store hash
-					var hash = this.hash;
-		
-					// Using jQuery's animate() method to add smooth page scroll
-					// The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-					$('html, body').animate({
-						scrollTop: $(hash).offset().top - 0 
-					}, 800, function(){
-			 
-						// Add hash (#) to URL when done scrolling (default click behavior)
-						//window.location.hash = hash;
+						}
+						// Call default Validator function
+						else if(contactFormDefaultValidator(form)){
+							return false;
+						}
+						else if(grecaptcha.getResponse(holderId) != ''){
+							grecaptcha.reset(holderId);
+						}
+						else{
+							// execute the recaptcha challenge
+							grecaptcha.execute(holderId);
+						}
 					});
-				} // End if
+				}
 			});
-		});
+		}
+	</script><script  src="https://www.google.com/recaptcha/api.js?onload=renderGoogleInvisibleRecaptchaFront&render=explicit" async defer></script>
+<!-- This site is optimized with the Yoast SEO Premium plugin v9.2 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="At LTI, experience a vibrant work environment, brimming with new ideas, diverse people, and the innate drive to excel.Be part of us. Be an LTIte."/>
+<link rel="canonical" href="https://www.lntinfotech.com/careers/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Careers | LTI, L&amp;T (Larsen Toubro Group Company)" />
+<meta property="og:description" content="At LTI, experience a vibrant work environment, brimming with new ideas, diverse people, and the innate drive to excel.Be part of us. Be an LTIte." />
+<meta property="og:url" content="https://www.lntinfotech.com/careers/" />
+<meta property="og:site_name" content="LTI" />
+<meta property="article:publisher" content="http://facebook.com/LarsenToubroInfotech/" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="At LTI, experience a vibrant work environment, brimming with new ideas, diverse people, and the innate drive to excel.Be part of us. Be an LTIte." />
+<meta name="twitter:title" content="Careers | LTI, L&amp;T (Larsen Toubro Group Company)" />
+<meta name="twitter:site" content="@LTI_Global" />
+<meta name="twitter:creator" content="@LTI_Global" />
+<script type='application/ld+json'>{"@context":"https:\/\/schema.org","@type":"Organization","url":"https:\/\/www.lntinfotech.com\/","sameAs":["http:\/\/facebook.com\/LarsenToubroInfotech\/","https:\/\/www.linkedin.com\/company\/l&t-infotech","https:\/\/www.youtube.com\/user\/LarsenToubroInfotech","https:\/\/twitter.com\/LTI_Global"],"@id":"https:\/\/www.lntinfotech.com\/#organization","name":"LTI","logo":"https:\/\/www.lntinfotech.com\/wp-content\/uploads\/2017\/06\/LTI_Lets_solve.png"}</script>
+<!-- / Yoast SEO Premium plugin. -->
+
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="LTI &raquo; Feed" href="https://www.lntinfotech.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="LTI &raquo; Comments Feed" href="https://www.lntinfotech.com/comments/feed/" />
+
+<!-- google webfont font replacement -->
+ 
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.lntinfotech.com\/wp-includes\/js\/wp-emoji-release.min.js"}};
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
 		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='https://www.lntinfotech.com/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+
+
+
+<link rel='stylesheet' id='cookie-consent-style-css-css'  href='https://www.lntinfotech.com/wp-content/themes/LnTInfotech/css/uk-cookie-consent.css' type='text/css' media='all' />
+<link rel='stylesheet' id='parent-style-css'  href='https://www.lntinfotech.com/wp-content/themes/enfold/style.css' type='text/css' media='all' />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel='stylesheet' id='avia-print-css'  href='https://www.lntinfotech.com/wp-content/themes/enfold/css/print.css' type='text/css' media='print' />
+
+
+<link rel='stylesheet' id='avia-style-css'  href='https://www.lntinfotech.com/wp-content/themes/LnTInfotech/style.css' type='text/css' media='all' />
+<script>if (document.location.protocol != "https:") {document.location = document.URL.replace(/^http:/i, "https:");}</script><script type='text/javascript' src='https://www.lntinfotech.com/wp-includes/js/jquery/jquery.js'></script>
+<script type='text/javascript' src='https://www.lntinfotech.com/wp-includes/js/jquery/jquery-migrate.min.js'></script>
+<script type='text/javascript' src='https://www.lntinfotech.com/wp-content/plugins/cf7-invisible-recaptcha/js/cf7_invisible_recaptcha.js'></script>
+<script type='text/javascript' src='https://www.lntinfotech.com/wp-content/themes/enfold/js/avia-compat.js'></script>
+<link rel='https://api.w.org/' href='https://www.lntinfotech.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.lntinfotech.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.lntinfotech.com/wp-includes/wlwmanifest.xml" /> 
+
+<link rel='shortlink' href='https://www.lntinfotech.com/?p=5329' />
+<link rel="alternate" type="application/json+oembed" href="https://www.lntinfotech.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.lntinfotech.com%2Fcareers%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.lntinfotech.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.lntinfotech.com%2Fcareers%2F&#038;format=xml" />
+<style type="text/css">
+                    .ctl-bullets-container {
+                display: table;
+                position: fixed;
+                right: 0;
+                height: 100%;
+                z-index: 1049;
+                font-weight: normal;
+            }
+	</style><link rel="profile" href="https://gmpg.org/xfn/11" />
+<link rel="alternate" type="application/rss+xml" title="LTI RSS2 Feed" href="https://www.lntinfotech.com/feed/" />
+<link rel="pingback" href="https://www.lntinfotech.com/xmlrpc.php" />
+
+<style type='text/css' media='screen'>
+ #top #header_main > .container, #top #header_main > .container .main_menu ul:first-child > li > a, #top #header_main #menu-item-shop .cart_dropdown_link{ height:70px; line-height: 70px; }
+ .html_top_nav_header .av-logo-container{ height:70px;  }
+ .html_header_top.html_header_sticky #top #wrap_all #main{ padding-top:100px; } 
+</style>
+<!--[if lt IE 9]><script src="https://www.lntinfotech.com/wp-content/themes/enfold/js/html5shiv.js"></script><![endif]-->
+<link rel="icon" href="https://www.lntinfotech.com/wp-content/uploads/2017/05/LTI_favicon.gif" type="image/gif">
+
+
+<!--
+Debugging Info for Theme support: 
+
+Theme: Enfold
+Version: 3.8
+Installed: enfold
+AviaFramework Version: 4.6
+AviaBuilder Version: 0.9.1
+- - - - - - - - - - -
+ChildTheme: LnTInfotech
+ChildTheme Version: 1.0.0
+ChildTheme Installed: enfold
+
+ML:128-PU:54-PLA:19
+WP:5.3.1
+Updates: disabled
+-->
+
+<style type='text/css'>
+@font-face {font-family: 'entypo-fontello'; font-weight: normal; font-style: normal;
+src: url('https://www.lntinfotech.com/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/assets/fonts/entypo-fontello.eot?v=3');
+src: url('https://www.lntinfotech.com/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/assets/fonts/entypo-fontello.eot?v=3#iefix') format('embedded-opentype'), 
+url('https://www.lntinfotech.com/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/assets/fonts/entypo-fontello.woff?v=3') format('woff'), 
+url('https://www.lntinfotech.com/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/assets/fonts/entypo-fontello.ttf') format('truetype'), 
+url('https://www.lntinfotech.com/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/assets/fonts/entypo-fontello.svg?v=3#entypo-fontello') format('svg');
+} #top .avia-font-entypo-fontello, body .avia-font-entypo-fontello, html body [data-av_iconfont='entypo-fontello']:before{ font-family: 'entypo-fontello'; }
+</style><link rel="stylesheet" href="https://www.lntinfotech.com/wp-content/themes/LnTInfotech/css/responsive.css" />
+<link rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 1024px)" href="https://www.lntinfotech.com/wp-content/themes/LnTInfotech/css/tablet.css" />
+<link rel="stylesheet" media="screen and (min-width: 1024px) and (max-width: 1366px)" href="https://www.lntinfotech.com/wp-content/themes/LnTInfotech/css/tablet-pro.css" />
+<link rel="stylesheet" media="screen and (min-width: 1050px) and (max-width: 1680px)" href="https://www.lntinfotech.com/wp-content/themes/LnTInfotech/css/desk-1680.css" />
+<link rel="stylesheet" media="screen and (min-width: 2560px)" href="https://www.lntinfotech.com/wp-content/themes/LnTInfotech/css/4k-mackpro.css" />
+	
+<!-- Global site tag (gtag.js) - Google Marketing Platform -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=DC-9135772"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'DC-9135772');
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->	
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-68217349-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-68217349-1');
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+	
+<!-- Google Tag Manager -->
+<script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P2ZZF89');
+</script>
+<!-- End Google Tag Manager -->
+	
+</head>
+
+<body data-rsssl=1 id="top" class="page-template page-template-template-digital page-template-template-digital-php page page-id-5329 page-parent stretched open_sans  page-careers">
+	
+<!-- Sticky Contact Us -->
+   <div id="sticky-contact">
+	  <a href="#">Contact us</a>
+   </div>
+   <div style="display:none;" id="sticky-contact-form">
+      <div class="sticky-contact-form-wrapp">
+	     <h1 class="title text-center">Contact us</h1>
+         <span class="sticky-contact-form-close-btn"><img src="https://www.lntinfotech.com/wp-content/uploads/2019/07/close-button.png" /></span>
+         <div role="form" class="wpcf7" id="wpcf7-f1678-o1" lang="en-US" dir="ltr">
+<div class="screen-reader-response"></div>
+<form action="/careers/#wpcf7-f1678-o1" method="post" class="wpcf7-form" novalidate="novalidate">
+<div style="display: none;">
+<input type="hidden" name="_wpcf7" value="1678" />
+<input type="hidden" name="_wpcf7_version" value="5.1.6" />
+<input type="hidden" name="_wpcf7_locale" value="en_US" />
+<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f1678-o1" />
+<input type="hidden" name="_wpcf7_container_post" value="0" />
+</div>
+<form action="">
+<div class="row first">
+<div class="col-md-12">
+<div class="col-md-6 first">
+<div class="form-group">
+                    <label> First Name <span class="required">*</span><br />
+                        <span class="wpcf7-form-control-wrap firstName"><input type="text" name="firstName" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </label>
+                </div>
+</p></div>
+<div class="col-md-6">
+<div class="form-group">
+                    <label> Last Name <span class="required">*</span><br />
+                        <span class="wpcf7-form-control-wrap lastName"><input type="text" name="lastName" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </label>
+                </div>
+</p></div>
+<div class="col-md-6 first">
+<div class="form-group">
+                    <label> Email Address <span class="required">*</span><br />
+                        <span class="wpcf7-form-control-wrap emailAddress"><input type="email" name="emailAddress" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" /></span> </label>
+                </div>
+</p></div>
+<div class="col-md-6">
+<div class="form-group">
+                    <label> Contact Number<br />
+                        <span class="wpcf7-form-control-wrap tel-48"><input type="tel" name="tel-48" value="" size="40" maxlength="15" minlength="4" class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-tel" aria-invalid="false" /></span> </label>
+                </div>
+</p></div>
+<div class="col-md-6 first">
+<div class="form-group">
+                    <label> Your Company's Name <span class="required">*</span><br />
+                        <span class="wpcf7-form-control-wrap company"><input type="text" name="company" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </label>
+                </div>
+</p></div>
+<div class="col-md-6">
+<div class="form-group">
+                    <label> Country<br />
+<span class="wpcf7-form-control-wrap country"><select name="country" class="wpcf7-form-control wpcf7-select" aria-invalid="false"><option value=""></option><option value="United States">United States</option><option value="United Kingdom">United Kingdom</option><option value="Canada">Canada</option><option value="France">France</option><option value="Germany">Germany</option><option value="South Africa">South Africa</option><option value="Denmark">Denmark</option><option value="Sweden">Sweden</option><option value="Norway">Norway</option><option value="Australia">Australia</option><option value="Japan">Japan</option><option value="India">India</option><option value="Costa Rica">Costa Rica</option><option value="United Arab Emirates">United Arab Emirates</option><option value="Netherlands">Netherlands</option><option value="Belgium">Belgium</option><option value="Abu Dhabi">Abu Dhabi</option><option value="Austria">Austria</option><option value="Saudi Arabia">Saudi Arabia</option><option value="Singapore">Singapore</option><option value="Finland">Finland</option><option value="Ireland">Ireland</option><option value="Spain">Spain</option><option value="Poland">Poland</option><option value="Philippines">Philippines</option><option value="Qatar">Qatar</option><option value="Mexico">Mexico</option><option value="China">China</option><option value="Kuwait">Kuwait</option><option value="Other">Other</option></select></span> </label>
+                </div>
+</p></div>
+<div class="col-md-6 first">
+<div class="form-group">
+                    <label> Your Industry <span class="required">*</span><br />
+                        <span class="wpcf7-form-control-wrap industry"><select name="industry" class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required" aria-required="true" aria-invalid="false"><option value=""></option><option value="Banking &amp; Finance">Banking &amp; Finance</option><option value="Insurance">Insurance</option><option value="Oil &amp; Gas">Oil &amp; Gas</option><option value="Utilities">Utilities</option><option value="CPG">CPG</option><option value="Retail">Retail</option><option value="Logistics">Logistics</option><option value="Hi Tech">Hi Tech</option><option value="Life Sciences">Life Sciences</option><option value="Healthcare">Healthcare</option><option value="Media &amp; Entertainment">Media &amp; Entertainment</option><option value="Process Manufacturing">Process Manufacturing</option><option value="Automotive &amp; Aerospace">Automotive &amp; Aerospace</option><option value="Industrial Manufacturing">Industrial Manufacturing</option><option value="Engineering &amp; Construction">Engineering &amp; Construction</option></select></span></label>
+                </div>
+</p></div>
+<div class="col-md-6">
+<div class="form-group">
+                    <label> Services/Technologies interested in <span class="required">*</span><br />
+                        <span class="wpcf7-form-control-wrap service"><select name="service" class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required" aria-required="true" aria-invalid="false"><option value=""></option><option value="Automation">Automation</option><option value="Cloud">Cloud</option><option value="Consulting">Consulting</option><option value="GDPR">GDPR</option><option value="Mosaic">Mosaic</option><option value="Infrastructure Management Services(IMS)">Infrastructure Management Services(IMS)</option><option value="Assurance Services">Assurance Services</option><option value="Cyber Defense Resiliency Service">Cyber Defense Resiliency Service</option><option value="Application Management">Application Management</option><option value="Domain">Domain</option></select></span> </label>
+                </div>
+</p></div>
+<div class="col-md-6 first">
+<div class="form-group">
+                    <label> Referred by<br />
+                        <span class="wpcf7-form-control-wrap referredby"><select name="referredby" class="wpcf7-form-control wpcf7-select" aria-invalid="false"><option value=""></option><option value="Search Engine">Search Engine</option><option value="Sales Person">Sales Person</option><option value="Trade Show / Conferences">Trade Show / Conferences</option><option value="Referred by Peer">Referred by Peer</option><option value="Referred by Industry Analyst">Referred by Industry Analyst</option><option value="Corporate Connect">Corporate Connect</option><option value="Others">Others</option></select></span></label>
+                </div>
+</p></div>
+<div class="col-md-6">
+<div class="form-group referredname" id="refered">
+                    <label> Referred Name<br />
+                        <span class="wpcf7-form-control-wrap ReferDescription"><input type="text" name="ReferDescription" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" /></span> </label>
+                </div>
+</p></div>
+</p></div>
+</p></div>
+<div class="row">
+<div class="col-md-12 message">
+            <label>Let us know how we can help you today<br />
+                <span class="wpcf7-form-control-wrap leadDescription1"><textarea name="leadDescription1" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false"></textarea></span> </label>
+        </div>
+</p></div>
+<div class="row text-center">
+<div class="col-md-12">
+<p class="privacycheck"><span class="wpcf7-form-control-wrap subscribed"><span class="wpcf7-form-control wpcf7-checkbox wpcf7-validates-as-required"><span class="wpcf7-list-item first last"><input type="checkbox" name="subscribed[]" value="" /><span class="wpcf7-list-item-label"></span></span></span></span> I agree to receive communication from LTI.<br/>Refer <a href="/privacy-policy/" rel="nofollow">LTI privacy policy</a> to know more about how we maintain privacy about your data.<input type="hidden" value="" name="idmkmdigid"></p>
+<p class="text-center"><input type="submit" value="Submit" class="wpcf7-form-control wpcf7-submit" id="submit" /></p>
+</p></div>
+</p></div>
+</form>
+<noscript>
+			<div class="wpcf7-response-output wpcf7-spam-blocked">Your browser does not support JavaScript!. Please enable javascript in your browser in order to get form work properly.</div>
+	</noscript><script type='text/javascript'>
+
+						if(contactform === undefined){
+							var contactform = [];
+						}
+						var innerVal = [1678,'mail_sent_ok','Thank you for your message. It has been sent.'];
+						contactform.push(innerVal);
+						var innerVal = [1678,'mail_sent_ng','There was an error trying to send your message. Please try again later.'];
+						contactform.push(innerVal);
+						var innerVal = [1678,'validation_error','One or more fields have an error. Please check and try again.'];
+						contactform.push(innerVal);
+						var innerVal = [1678,'spam','There was an error trying to send your message. Please try again later.'];
+						contactform.push(innerVal);
+						var innerVal = [1678,'accept_terms','You must accept the terms and conditions before sending your message.'];
+						contactform.push(innerVal);
+						var innerVal = [1678,'invalid_required','The field is required.'];
+						contactform.push(innerVal);
+						var innerVal = [1678,'invalid_too_long','The field is too long.'];
+						contactform.push(innerVal);
+						var innerVal = [1678,'invalid_too_short','The field is too short.'];
+						contactform.push(innerVal);
+						var innerVal = [1678,'invalid_date','The date format is incorrect.'];
+						contactform.push(innerVal);
+						var innerVal = [1678,'date_too_early','The date is before the earliest one allowed.'];
+						contactform.push(innerVal);
+						var innerVal = [1678,'date_too_late','The date is after the latest one allowed.'];
+						contactform.push(innerVal);
+						var innerVal = [1678,'upload_failed','There was an unknown error uploading the file.'];
+						contactform.push(innerVal);
+						var innerVal = [1678,'upload_file_type_invalid','You are not allowed to upload files of this type.'];
+						contactform.push(innerVal);
+						var innerVal = [1678,'upload_file_too_large','The file is too big.'];
+						contactform.push(innerVal);
+						var innerVal = [1678,'upload_failed_php_error','There was an error uploading the file.'];
+						contactform.push(innerVal);
+						var innerVal = [1678,'invalid_number','The number format is invalid.'];
+						contactform.push(innerVal);
+						var innerVal = [1678,'number_too_small','The number is smaller than the minimum allowed.'];
+						contactform.push(innerVal);
+						var innerVal = [1678,'number_too_large','The number is larger than the maximum allowed.'];
+						contactform.push(innerVal);
+						var innerVal = [1678,'quiz_answer_not_correct','The answer to the quiz is incorrect.'];
+						contactform.push(innerVal);
+						var innerVal = [1678,'captcha_not_match','Your entered code is incorrect.'];
+						contactform.push(innerVal);
+						var innerVal = [1678,'invalid_email','The e-mail address entered is invalid.'];
+						contactform.push(innerVal);
+						var innerVal = [1678,'invalid_url','The URL is invalid.'];
+						contactform.push(innerVal);
+						var innerVal = [1678,'invalid_tel','The telephone number is invalid.'];
+						contactform.push(innerVal);
+						var innerVal = [1678,'gdpr',''];
+						contactform.push(innerVal);
+						</script><div class="wpcf7-response-output wpcf7-display-none"></div></form></div>      </div>
+   </div>
+<!-- Sticky Contact Us End -->
+	
+	
+	<div id='wrap_all'>
+	
+
+    <header id='header' class='all_colors header_color light_bg_color  av_header_top av_logo_left av_main_nav_header av_menu_right av_custom av_header_sticky av_header_shrinking_disabled av_header_stretch av_mobile_menu_phone av_header_transparency av_header_searchicon_disabled av_header_unstick_top_disabled av_seperator_big_border av_bottom_nav_disabled ' >
+
+                    <div id='header_meta' class='container_wrap container_wrap_meta  av_secondary_right av_extra_header_active av_phone_active_right av_entry_id_5329'>
+
+                <div class='container top-sub-menu' >
+                    <nav class='sub_menu' ><ul id="avia2-menu" class="menu"><li id="menu-item-27305" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-27305"><a href="#">About Us</a>
+<ul class="sub-menu">
+	<li id="menu-item-27306" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27306"><a href="https://www.lntinfotech.com/company/">Company</a></li>
+	<li id="menu-item-27309" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27309"><a href="https://www.lntinfotech.com/news-events/">News &#038; Events</a></li>
+	<li id="menu-item-27311" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-5329 current_page_item menu-item-27311"><a href="https://www.lntinfotech.com/careers/" aria-current="page">Careers</a></li>
+	<li id="menu-item-27315" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27315"><a href="https://www.lntinfotech.com/blogs/">Blogs</a></li>
+	<li id="menu-item-42119" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-42119"><a href="https://www.lntinfotech.com/podcasts/">Podcasts</a></li>
+	<li id="menu-item-27316" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27316"><a href="https://www.lntinfotech.com/alliances/">Alliances</a></li>
+	<li id="menu-item-27310" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27310"><a href="https://www.lntinfotech.com/social-responsibility/">Social Responsibility</a></li>
+	<li id="menu-item-27317" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27317"><a href="https://www.lntinfotech.com/media-kit/">Media Kit</a></li>
+	<li id="menu-item-27307" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27307"><a href="https://www.lntinfotech.com/global-footprints/">Global Footprint</a></li>
+</ul>
+</li>
+<li id="menu-item-45377" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-45377"><a href="https://www.lntinfotech.com/investors/">Investors</a></li>
+<li id="menu-item-27318" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27318"><a href="https://www.lntinfotech.com/contact-us/">Contact Us</a></li>
+</ul></nav><div class='phone-info with_nav'><span> <a id="search-content" href="#"><img src="https://www.lntinfotech.com/wp-content/uploads/2018/08/search_icon.png" alt="Search" title="Search"/></a>                 </div>
+            </div>
+
+                    <div id='header_main' class='container_wrap container_wrap_logo'>
+			             
+
+            <div class='container av-logo-container'><div class='inner-container'><strong class='logo'><a href='https://www.lntinfotech.com/'><img height='100' width='300' src='https://www.lntinfotech.com/wp-content/uploads/2017/06/LTI_Lets_solve.png' alt='LTI' /></a></strong><nav class='main_menu' data-selectname='Select a page' ><div class="avia-menu av-main-nav-wrap"><ul id="avia-menu" class="menu av-main-nav"><li id="menu-item-28490" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-top-level menu-item-top-level-1"><a title="Enterprise IT Solutions and Services" href="#"><span class="avia-bullet"></span><span class="avia-menu-text">Industries</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a>
+
+
+<ul class="sub-menu">
+	<li id="menu-item-28496" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/industries/banking-financial-services/"><span class="avia-bullet"></span><span class="avia-menu-text">Banking &#038; Financial Services</span></a></li>
+	<li id="menu-item-28500" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/industries/insurance/"><span class="avia-bullet"></span><span class="avia-menu-text">Insurance</span></a></li>
+	<li id="menu-item-28660" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="#"><span class="avia-bullet"></span><span class="avia-menu-text">Energy &#038; Utilities</span></a>
+	<ul class="sub-menu">
+		<li id="menu-item-28507" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/industries/energy-utilities/oil-gas/"><span class="avia-bullet"></span><span class="avia-menu-text">Oil &#038; Gas</span></a></li>
+		<li id="menu-item-28508" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/industries/energy-utilities/utilities/"><span class="avia-bullet"></span><span class="avia-menu-text">Utilities</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-28661" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="#"><span class="avia-bullet"></span><span class="avia-menu-text">CPG &#038; Retail</span></a>
+	<ul class="sub-menu">
+		<li id="menu-item-28512" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/industries/cpg-retail/cpg/"><span class="avia-bullet"></span><span class="avia-menu-text">CPG</span></a></li>
+		<li id="menu-item-28513" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/industries/cpg-retail/retail/"><span class="avia-bullet"></span><span class="avia-menu-text">Retail</span></a></li>
+		<li id="menu-item-28517" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/industries/cpg-retail/logistics/"><span class="avia-bullet"></span><span class="avia-menu-text">Logistics</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-28518" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/industries/hi-tech/"><span class="avia-bullet"></span><span class="avia-menu-text">Hi-Tech</span></a></li>
+	<li id="menu-item-28663" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="#"><span class="avia-bullet"></span><span class="avia-menu-text">Life Sciences &#038; Healthcare</span></a>
+	<ul class="sub-menu">
+		<li id="menu-item-28519" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/industries/life-sciences-healthcare/life-sciences/"><span class="avia-bullet"></span><span class="avia-menu-text">Life Sciences</span></a></li>
+		<li id="menu-item-28522" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/industries/life-sciences-healthcare/healthcare/"><span class="avia-bullet"></span><span class="avia-menu-text">Healthcare</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-28526" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/industries/media-entertainment-product-engineering/"><span class="avia-bullet"></span><span class="avia-menu-text">Media &#038; Entertainment</span></a></li>
+	<li id="menu-item-28665" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="#"><span class="avia-bullet"></span><span class="avia-menu-text">Manufacturing</span></a>
+	<ul class="sub-menu">
+		<li id="menu-item-28528" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/industries/manufacturing/process-manufacturing/"><span class="avia-bullet"></span><span class="avia-menu-text">Process Manufacturing</span></a></li>
+		<li id="menu-item-28529" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/industries/manufacturing/automotive-aerospace/"><span class="avia-bullet"></span><span class="avia-menu-text">Automotive &#038; Aerospace</span></a></li>
+		<li id="menu-item-28532" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/industries/manufacturing/industrial-manufacturing/"><span class="avia-bullet"></span><span class="avia-menu-text">Industrial Manufacturing</span></a></li>
+		<li id="menu-item-28533" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/industries/manufacturing/engineering-construction/"><span class="avia-bullet"></span><span class="avia-menu-text">Engineering &#038; Construction</span></a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-28491" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-top-level menu-item-top-level-2"><a title="LTI IT Services and Solutions" href="#"><span class="avia-bullet"></span><span class="avia-menu-text">Services</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a>
+
+
+<ul class="sub-menu">
+	<li id="menu-item-28670" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="#"><span class="avia-bullet"></span><span class="avia-menu-text">Cloud</span></a>
+	<ul class="sub-menu">
+		<li id="menu-item-28536" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/services/cloud/cloud-iaas/"><span class="avia-bullet"></span><span class="avia-menu-text">IaaS</span></a></li>
+		<li id="menu-item-28538" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/services/cloud/cloud-saas/"><span class="avia-bullet"></span><span class="avia-menu-text">SaaS</span></a></li>
+		<li id="menu-item-28537" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/services/cloud/cloud-native/"><span class="avia-bullet"></span><span class="avia-menu-text">Native</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-28671" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="#"><span class="avia-bullet"></span><span class="avia-menu-text">Consulting</span></a>
+	<ul class="sub-menu">
+		<li id="menu-item-28540" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/privacy/"><span class="avia-bullet"></span><span class="avia-menu-text">Privacy</span></a></li>
+		<li id="menu-item-28541" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/services/consulting/ocm/"><span class="avia-bullet"></span><span class="avia-menu-text">OCM</span></a></li>
+		<li id="menu-item-28542" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/services/consulting/blockchain/"><span class="avia-bullet"></span><span class="avia-menu-text">Blockchain</span></a></li>
+		<li id="menu-item-28543" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/services/consulting/next-generation-workplace/"><span class="avia-bullet"></span><span class="avia-menu-text">Next Generation Workplace</span></a></li>
+		<li id="menu-item-28544" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/services/consulting/design-studio/"><span class="avia-bullet"></span><span class="avia-menu-text">Design Studio</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-38525" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/services/cloud-infrastructure-services/"><span class="avia-bullet"></span><span class="avia-menu-text">Cloud &#038; Infrastructure Services (CIS)</span></a></li>
+	<li id="menu-item-28546" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/services/assurance-services/"><span class="avia-bullet"></span><span class="avia-menu-text">Assurance Services</span></a></li>
+	<li id="menu-item-28549" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/services/cyber-security/"><span class="avia-bullet"></span><span class="avia-menu-text">Cyber Defense Resiliency Service</span></a></li>
+	<li id="menu-item-28672" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="#"><span class="avia-bullet"></span><span class="avia-menu-text">Application Management</span></a>
+	<ul class="sub-menu">
+		<li id="menu-item-28554" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/services/applications-management/applications-development-maintenance/"><span class="avia-bullet"></span><span class="avia-menu-text">Applications Development &#038; Maintenance</span></a></li>
+		<li id="menu-item-28555" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/services/applications-management/system-integration/"><span class="avia-bullet"></span><span class="avia-menu-text">System Integration</span></a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-28492" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-top-level menu-item-top-level-3"><a title="Enterprise IT Solutions - LTI" href="#"><span class="avia-bullet"></span><span class="avia-menu-text">Solutions</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a>
+
+
+<ul class="sub-menu">
+	<li id="menu-item-28556" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/enterprise-solutions/oracle/"><span class="avia-bullet"></span><span class="avia-menu-text">Oracle</span></a></li>
+	<li id="menu-item-28558" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/enterprise-solutions/sap/"><span class="avia-bullet"></span><span class="avia-menu-text">SAP</span></a></li>
+	<li id="menu-item-28557" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/enterprise-solutions/salesforce/"><span class="avia-bullet"></span><span class="avia-menu-text">Salesforce</span></a></li>
+	<li id="menu-item-28559" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/enterprise-solutions/microsoft-dynamics/"><span class="avia-bullet"></span><span class="avia-menu-text">Microsoft Dynamics 365</span></a></li>
+	<li id="menu-item-28560" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/enterprise-solutions/maximo/"><span class="avia-bullet"></span><span class="avia-menu-text">Maximo</span></a></li>
+	<li id="menu-item-28561" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/enterprise-solutions/oracle/jd-edwards/"><span class="avia-bullet"></span><span class="avia-menu-text">JD Edwards</span></a></li>
+</ul>
+</li>
+<li id="menu-item-28493" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-top-level menu-item-top-level-4"><a title="Digital Transformation - LTI" href="#"><span class="avia-bullet"></span><span class="avia-menu-text">Digital</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a>
+
+
+<ul class="sub-menu">
+	<li id="menu-item-28562" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/digital-transformation/data-analytics/"><span class="avia-bullet"></span><span class="avia-menu-text">Data &#038; Analytics</span></a></li>
+	<li id="menu-item-28719" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/digital-transformation/internet-of-things/"><span class="avia-bullet"></span><span class="avia-menu-text">Internet of Things</span></a></li>
+	<li id="menu-item-28564" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/digital-transformation/digital-interactive/"><span class="avia-bullet"></span><span class="avia-menu-text">Digital Interactive</span></a></li>
+	<li id="menu-item-28565" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/digital-transformation/mobility/"><span class="avia-bullet"></span><span class="avia-menu-text">Mobility</span></a></li>
+	<li id="menu-item-35132" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/digital-transformation/digital-integration/"><span class="avia-bullet"></span><span class="avia-menu-text">Digital Integration</span></a></li>
+	<li id="menu-item-28567" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/digital-transformation/artificial-intelligence-cognitive/"><span class="avia-bullet"></span><span class="avia-menu-text">Artificial Intelligence and Cognitive</span></a></li>
+	<li id="menu-item-38099" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/digital-transformation/intelligent-rpa/"><span class="avia-bullet"></span><span class="avia-menu-text">Intelligent RPA</span></a></li>
+</ul>
+</li>
+<li id="menu-item-28494" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-top-level menu-item-top-level-5"><a title="Platforms - LTI" href="#"><span class="avia-bullet"></span><span class="avia-menu-text">Platforms</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a>
+
+
+<ul class="sub-menu">
+	<li id="menu-item-28568" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/digital-platforms/mosaic/"><span class="avia-bullet"></span><span class="avia-menu-text">Mosaic</span></a></li>
+	<li id="menu-item-28676" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="#"><span class="avia-bullet"></span><span class="avia-menu-text">Industry Platforms</span></a>
+	<ul class="sub-menu">
+		<li id="menu-item-28570" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/digital-transformation/mobility/banking-financial-services/unitrax/"><span class="avia-bullet"></span><span class="avia-menu-text">Unitrax<sup>®</sup></span></a></li>
+		<li id="menu-item-28571" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/digital-platforms/industry-platforms/redaxis/"><span class="avia-bullet"></span><span class="avia-menu-text">REDaxis</span></a></li>
+		<li id="menu-item-28572" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/industries/insurance/new-age-distribution-customer-service/iceon/"><span class="avia-bullet"></span><span class="avia-menu-text">iCEOn<sup>TM</sup></span></a></li>
+		<li id="menu-item-33496" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/digital-platforms/industry-platforms/advanced-smart-city-operating-platform/"><span class="avia-bullet"></span><span class="avia-menu-text">Advanced Smart City Operating Platform</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-28677" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="#"><span class="avia-bullet"></span><span class="avia-menu-text">Technology Platforms</span></a>
+	<ul class="sub-menu">
+		<li id="menu-item-28574" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.lntinfotech.com/digital-platforms/technology-platforms/rapidadopt/"><span class="avia-bullet"></span><span class="avia-menu-text">RapidAdopt</span></a></li>
+	</ul>
+</li>
+</ul>
+</li>
+</ul></div></nav></div> </div> 
+            <!-- end container_wrap-->
+        </div>
+
+        <div class='header_bg'></div>
+
+        <!-- end header -->
+    </header>
+
 		
-		<script>
-		$(".get-directions").on("click", function() {
-				//$("#contact .fixwidth").fadeOut('slow');
-				//$("#contact .map").css('background-image', 'none').delay(1000);
-				//$("#contact .map").delay(800).css('display','none');
-				$("#contact .map").fadeOut('slow');
-		});
-		</script>
+	<div id='main' class='all_colors' data-scroll-offset='70'>
+
+	<div id='full_slider_1' class='avia-fullwidth-slider main_color avia-shadow  avia-builder-el-0  el_before_av_slideshow_full_custom_mobile  avia-builder-el-first  container_wrap fullsize'   ><a href='#next-section' title='' class='scroll-down-link av-control-default' aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'></a><div  data-size='featured'  data-lightbox_size='large'  data-animation='slide'  data-ids='22527'  data-video_counter='0'  data-autoplay='false'  data-bg_slider='false'  data-slide_height=''  data-handle='av_slideshow_full_custom'  data-interval='5'  data-class=' '  data-css_id=''  data-scroll_down='aviaTBscroll_down'  data-control_layout='av-control-default'  data-custom_markup=''  data-perma_caption=''  data-autoplay_stopper=''  data-image_attachment=''  data-alttext=''  data-custom_id=''  data-src=''  data-position='top left'  data-repeat='no-repeat'  data-attach='scroll'  data-stretch=''  data-default-height='28.666666666667'  class='avia-slideshow avia-slideshow-1 av-slider-scroll-down-active av-control-default av-default-height-applied avia-slideshow-featured av_slideshow_full_custom   avia-slide-slider ' ><ul class='avia-slideshow-inner' style='padding-bottom: 26.666666666667%;'><li  class=' av-single-slide slide-1 ' ><div  data-rel='slideshow-1' class='avia-slide-wrap'  ><img class='auto-play-video' src='https://www.lntinfotech.com/wp-content/uploads/2019/10/Employee-engagment-hero-banner.jpg' width='1500' height='400' title='' alt='Explore opportunities beyond the obvious'  /><div class='modal fade video-content' ><iframe id="iframeYoutube" width="640" height="360" data-src="https://www.youtube.com/embed/jjQDgixFdtY?rel=0&autoplay=1" frameborder="0" src="about:blank" allow="autoplay; encrypted-media" allowfullscreen=""></iframe></div></div></li></ul></div></div>
+
+<div id='breadcrumb' class='avia-section main_color avia-section-small avia-no-border-styling avia-bg-style-scroll  avia-builder-el-2  el_after_av_slideshow_full_custom_mobile  el_before_av_section  container_wrap fullsize'   ><div class='container' ><div class='template-page content  av-content-full alpha units'><div class='post-entry post-entry-type-page post-entry-5329'><div class='entry-content-wrapper clearfix'>
+<div class="flex_column av_one_full  flex_column_div av-zero-column-padding first  avia-builder-el-3  avia-builder-el-no-sibling  " style='border-radius:0px; '><div class="breadcrumb breadcrumbs avia-breadcrumbs"><div class="breadcrumb-trail" ><a href="https://www.lntinfotech.com" title="LTI" rel="home" class="trail-begin">Home</a> <span class="sep">›</span> <span class="trail-end">Careers</span></div></div></div>
+
+</div></div></div><!-- close content main div --></div></div><div id='overview' class='avia-section main_color avia-section-default avia-no-border-styling avia-bg-style-scroll  avia-builder-el-5  el_after_av_section  el_before_av_hr  container_wrap fullsize'   ><div class='container' ><div class='template-page content  av-content-full alpha units'><div class='post-entry post-entry-type-page post-entry-5329'><div class='entry-content-wrapper clearfix'>
+<div style='padding-bottom:10px;color:#00008c;' class='av-special-heading av-special-heading-h1 custom-color-heading blockquote modern-quote  avia-builder-el-6  el_before_av_three_fifth  avia-builder-el-first  '><h1 class='av-special-heading-tag'  >Careers</h1><div class='special-heading-border'><div class='special-heading-inner-border' style='border-color:#00008c'></div></div></div>
+<div class="flex_column av_three_fifth  flex_column_div av-zero-column-padding first  avia-builder-el-7  el_after_av_heading  el_before_av_two_fifth  " style='border-radius:0px; '><p><section class="av_textblock_section" ><div class='avia_textblock  av_inherit_color'  style='font-size:24px; color:#ade0ee; ' ><p>If you have the passion to succeed, we have the opportunities to ensure you thrive. So, be part of this dynamic ecosystem. Be part of us. Be an LTIte.</p>
+</div></section><br />
+<div class='avia-button-wrap avia-button-left  avia-builder-el-9  el_after_av_textblock  el_before_av_button '><a href='https://careers.lntinfotech.com/' class='avia-button  avia-icon_select-no avia-color-theme-color avia-size-large avia-position-left '  target="_blank"   ><span class='avia_iconbox_title' >Explore Opportunities</span></a></div><br />
+<div class='avia-button-wrap avia-button-left  avia-builder-el-10  el_after_av_button  avia-builder-el-last '><a href='https://www.lntinfotech.com/careers/alumni/' class='avia-button  avia-icon_select-no avia-color-theme-color avia-size-large avia-position-left '  target="_blank"   ><span class='avia_iconbox_title' > LTI Alumni Page </span></a></div></p></div><div class="flex_column av_two_fifth  flex_column_div av-zero-column-padding   avia-builder-el-11  el_after_av_three_fifth  avia-builder-el-last  " style='border-radius:0px; '><section class="av_textblock_section" ><div class='avia_textblock  av_inherit_color'  style='font-size:20px; color:#232323; ' ><p>At <a href="https://www.lntinfotech.com" rel="noopener" target="_blank">LTI</a>, we believe in creating a culture of innovation, which reflects in everything we do. Empower yourself with possibilities that will take you to newer heights and will open to you newer avenues. Experience a vibrant work environment, brimming with new ideas, diverse people, and the innate drive to excel.</p>
+</div></section></div></div></div></div><!-- close content main div --></div></div><div id='after_section_2' class='main_color av_default_container_wrap container_wrap fullsize'   ><div class='container' ><div class='template-page content  av-content-full alpha units'><div class='post-entry post-entry-type-page post-entry-5329'><div class='entry-content-wrapper clearfix'><div style='height:40px' class='hr hr-invisible  avia-builder-el-13  el_after_av_section  el_before_av_section  avia-builder-el-no-sibling '><span class='hr-inner ' ><span class='hr-inner-style'></span></span></div></p>
+</div></div></div><!-- close content main div --></div></div><div id='video-section' class='avia-section main_color avia-section-default avia-no-border-styling avia-bg-style-scroll  avia-builder-el-14  el_after_av_hr  el_before_av_slideshow_accordion  container_wrap fullsize'   ><div class='container' ><div class='template-page content  av-content-full alpha units'><div class='post-entry post-entry-type-page post-entry-5329'><div class='entry-content-wrapper clearfix'>
+<section class=" flex_column av_one_full first">
+                <h4 class="widget-title"></h4>
+                <a  href="#" class="open_video_modal"><img src="https://www.lntinfotech.com/wp-content/uploads/2019/06/Video-Banner-Desktop.jpg" alt="" /></a>
+                <div class="modal fade video-content" ><div  class='avia-video avia-video-16-9  ' ><div class='avia-iframe-wrap'><iframe title="Celebrating 22 years of LTI" width="1500" height="844" src="https://www.youtube.com/embed/dPeKe1up4-8?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div></div>
+                  </section>
+
+</div></div></div><!-- close content main div --></div></div><div id='accordion_slider_2' class='avia-accordion-slider-wrap main_color avia-shadow  avia-builder-el-16  el_after_av_section  el_before_av_slideshow_full  slider-not-first container_wrap fullsize'   ><div class='aviaccordion aviaccordion-title-active' style='max-height:430px' data-av-maxheight='430' data-autoplay='false' data-interval='5'  ><ul class='aviaccordion-inner'><li class='aviaccordion-slide aviaccordion-slide-1' style='left:0%' data-av-left='0' ><a class='aviaccordion-slide-link noHover' href='https://www.lntinfotech.com/wp-content/uploads/2019/02/Tina-campaign.jpg' ><div class='aviaccordion-preview  ' style='width:20.1%'></div><img width="764" height="430" src="https://www.lntinfotech.com/wp-content/uploads/2019/02/Tina-campaign.jpg" class="aviaccordion-image" alt="" /></a></li><li class='aviaccordion-slide aviaccordion-slide-2' style='left:20%' data-av-left='20' ><a class='aviaccordion-slide-link noHover' href='https://www.lntinfotech.com/wp-content/uploads/2019/02/Eva-Campaign-design_2.jpg' ><div class='aviaccordion-preview  ' style='width:20.1%'></div><img width="764" height="430" src="https://www.lntinfotech.com/wp-content/uploads/2019/02/Eva-Campaign-design_2.jpg" class="aviaccordion-image" alt="" /></a></li><li class='aviaccordion-slide aviaccordion-slide-3' style='left:40%' data-av-left='40' ><a class='aviaccordion-slide-link noHover' href='https://www.lntinfotech.com/wp-content/uploads/2019/02/Peggy-campaign.jpg' ><div class='aviaccordion-preview  ' style='width:20.1%'></div><img width="764" height="430" src="https://www.lntinfotech.com/wp-content/uploads/2019/02/Peggy-campaign.jpg" class="aviaccordion-image" alt="" /></a></li><li class='aviaccordion-slide aviaccordion-slide-4' style='left:60%' data-av-left='60' ><a class='aviaccordion-slide-link noHover' href='https://www.lntinfotech.com/wp-content/uploads/2019/02/TARA-Murthy-SM-Banner.jpg' ><div class='aviaccordion-preview  ' style='width:20.1%'></div><img width="764" height="430" src="https://www.lntinfotech.com/wp-content/uploads/2019/02/TARA-Murthy-SM-Banner.jpg" class="aviaccordion-image" alt="" /></a></li><li class='aviaccordion-slide aviaccordion-slide-5' style='left:80%' data-av-left='80' ><a class='aviaccordion-slide-link noHover' href='https://www.lntinfotech.com/wp-content/uploads/2019/02/Zel-Mari-Oelofse-Campaign-design-1.jpg' ><div class='aviaccordion-preview  ' style='width:20.1%'></div><img width="764" height="430" src="https://www.lntinfotech.com/wp-content/uploads/2019/02/Zel-Mari-Oelofse-Campaign-design-1.jpg" class="aviaccordion-image" alt="" /></a></li></ul><div class='aviaccordion-spacer' style='padding-bottom:28.666666666667%'></div></div></div>
+<div id='full_slider_3' class='avia-fullwidth-slider main_color avia-shadow  avia-builder-el-17  el_after_av_slideshow_accordion  el_before_av_section  slider-not-first container_wrap fullsize'   ><div  data-size='no scaling'  data-lightbox_size='large'  data-animation='slide'  data-ids='34983,35002,34986,35057,35017'  data-video_counter='0'  data-autoplay='true'  data-bg_slider='false'  data-slide_height=''  data-handle='av_slideshow_full'  data-interval='5'  data-class=' '  data-css_id=''  data-scroll_down=''  data-control_layout='av-control-default'  data-custom_markup=''  data-perma_caption=''  data-autoplay_stopper=''  data-image_attachment=''  data-src=''  data-position='top left'  data-repeat='no-repeat'  data-attach='scroll'  data-stretch=''  class='avia-slideshow avia-slideshow-1  av-control-default av-default-height-applied avia-slideshow-no scaling av_slideshow_full   avia-slide-slider ' ><ul class='avia-slideshow-inner' style='padding-bottom: 56.25%;'><li  class=' slide-1 ' ><div data-rel='slideshow-1' class='avia-slide-wrap'  ><img src='https://www.lntinfotech.com/wp-content/uploads/2019/02/Tina-campaign.jpg' width='816' height='459' title='' alt=''  /></div></li><li  class=' slide-2 ' ><div data-rel='slideshow-1' class='avia-slide-wrap'  ><img src='https://www.lntinfotech.com/wp-content/uploads/2019/02/Eva-Campaign-design_2.jpg' width='816' height='459' title='' alt=''  /></div></li><li  class=' slide-3 ' ><div data-rel='slideshow-1' class='avia-slide-wrap'  ><img src='https://www.lntinfotech.com/wp-content/uploads/2019/02/Peggy-campaign.jpg' width='816' height='459' title='' alt=''  /></div></li><li  class=' slide-4 ' ><div data-rel='slideshow-1' class='avia-slide-wrap'  ><img src='https://www.lntinfotech.com/wp-content/uploads/2019/02/TARA-Murthy-SM-Banner.jpg' width='816' height='459' title='TARA Murthy SM Banner' alt=''  /></div></li><li  class=' slide-5 ' ><div data-rel='slideshow-1' class='avia-slide-wrap'  ><img src='https://www.lntinfotech.com/wp-content/uploads/2019/02/Zel-Mari-Oelofse-Campaign-design-1.jpg' width='816' height='459' title='Zel-Mari Oelofse Campaign design (1)' alt=''  /></div></li></ul><div class='avia-slideshow-arrows avia-slideshow-controls'><a href='#prev' class='prev-slide' aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'>Previous</a><a href='#next' class='next-slide' aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'>Next</a></div><div class='avia-slideshow-dots avia-slideshow-controls'><a href='#1' class='goto-slide active' >1</a><a href='#2' class='goto-slide ' >2</a><a href='#3' class='goto-slide ' >3</a><a href='#4' class='goto-slide ' >4</a><a href='#5' class='goto-slide ' >5</a></div></div></div>
+<div id='av_section_4' class='avia-section main_color avia-section-default avia-no-border-styling avia-bg-style-scroll  avia-builder-el-18  el_after_av_slideshow_full  avia-builder-el-last  container_wrap fullsize' style = 'background-color: #00008c; background-color: #00008c; '  ><div class='container' ><div class='template-page content  av-content-full alpha units'><div class='post-entry post-entry-type-page post-entry-5329'><div class='entry-content-wrapper clearfix'>
+<div class='avia-button-wrap avia-button-center  avia-builder-el-19  avia-builder-el-no-sibling '><a href='https://lti-lca-notices.lntinfotech.com/' class='avia-button  avia-icon_select-no avia-color-light avia-size-large avia-position-center '  target="_blank"   ><span class='avia_iconbox_title' >View LCA Notices</span></a></div>
+
+</div></div></div><!-- close content main div --> <!-- section close by builder template --></div><!--end builder template--></div><!-- close default .container_wrap element --><!-- end main -->
+</div>
+
+
     
+        <footer class='container_wrap socket_color' id='socket' >
+            <div class='container footer'>
+                <div class="flex_column av_one_third flex_column_div first el_after_av_heading el_before_av_one_third">
+                    <a href="http://www.larsentoubro.com/" target="_blank"><img class="logo" src="https://www.lntinfotech.com/wp-content/themes/LnTInfotech/images/parent-company-logo.png" alt="" /></a>
+                </div>
+                <div class="flex_column av_one_third flex_column_div el_after_av_heading el_before_av_one_third">
+                    <ul class='noLightbox social_bookmarks icon_count_6'><li class='social_bookmarks_linkedin av-social-link-linkedin social_icon_1'><a target='_blank' href='https://www.linkedin.com/company/l&t-infotech' aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello' title='Linkedin'><span class='avia_hidden_link_text'>Linkedin</span></a></li><li class='social_bookmarks_twitter av-social-link-twitter social_icon_2'><a target='_blank' href='https://twitter.com/LTI_Global' aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello' title='Twitter'><span class='avia_hidden_link_text'>Twitter</span></a></li><li class='social_bookmarks_youtube av-social-link-youtube social_icon_3'><a target='_blank' href='https://www.youtube.com/user/LarsenToubroInfotech' aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello' title='Youtube'><span class='avia_hidden_link_text'>Youtube</span></a></li><li class='social_bookmarks_facebook av-social-link-facebook social_icon_4'><a target='_blank' href='https://www.facebook.com/LarsenToubroInfotech' aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello' title='Facebook'><span class='avia_hidden_link_text'>Facebook</span></a></li><li class='social_bookmarks_instagram av-social-link-instagram social_icon_5'><a target='_blank' href='https://www.instagram.com/LTI_Global/' aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello' title='Instagram'><span class='avia_hidden_link_text'>Instagram</span></a></li><li class='social_bookmarks_mail av-social-link-mail social_icon_6'><a  href='https://www.lntinfotech.com/contact-us/' aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello' title='Mail'><span class='avia_hidden_link_text'>Mail</span></a></li></ul>                </div>
+
+                
+                <div class="flex_column av_one_third flex_column_div last el_after_av_heading el_before_av_one_third">
+                    <nav class='sub_menu_socket' ><div class="avia3-menu"><ul id="avia3-menu" class="menu"><li id="menu-item-10210" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-top-level menu-item-top-level-1"><a href="https://www.lntinfotech.com/blogs/"><span class="avia-bullet"></span><span class="avia-menu-text">Blogs</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-5340" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-5329 current_page_item menu-item-top-level menu-item-top-level-2"><a href="https://www.lntinfotech.com/careers/"><span class="avia-bullet"></span><span class="avia-menu-text">Careers</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-4133" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-top-level menu-item-top-level-3"><a href="https://www.lntinfotech.com/company/"><span class="avia-bullet"></span><span class="avia-menu-text">Company</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-45378" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-top-level menu-item-top-level-4"><a href="https://www.lntinfotech.com/investors/"><span class="avia-bullet"></span><span class="avia-menu-text">Investors</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-13222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-top-level menu-item-top-level-5"><a href="https://www.lntinfotech.com/newsletters/"><span class="avia-bullet"></span><span class="avia-menu-text">Newsletters</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+</ul></div></nav>                </div>
+            </div>
+			
+						            <div class='container footer-bottom'>
+                <div class="flex_column av_one_third flex_column_div first el_before_av_one_half avia-builder-el-first">
+                    <span class='copyright'>© 2020 Larsen & Toubro Infotech Limited</span>
+                </div>
+
+                <div class="flex_column av_one_third flex_column_div el_before_av_one_half text-center">
+                    <!--<img class="celebrating" src="https://www.lntinfotech.com/wp-content/themes/LnTInfotech/images/celebrating_20yrs.png" alt="LTI's 20th Year" title="LTI's 20th Year"/> -->
+                </div>
+
+                <div class="flex_column av_one_third flex_column_div last el_before_av_one_half avia-builder-el-last">
+                    <nav class='sub_menu_socket' ><div class="avia4-menu"><ul id="avia4-menu" class="menu"><li id="menu-item-1400" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-top-level menu-item-top-level-1"><a href="https://www.lntinfotech.com/sitemap/"><span class="avia-bullet"></span><span class="avia-menu-text">Sitemap</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-4683" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-top-level menu-item-top-level-2"><a href="https://www.lntinfotech.com/privacy_policy%e2%80%8b%e2%80%8b%e2%80%8b%e2%80%8b%e2%80%8b%e2%80%8b%e2%80%8b%e2%80%8b/"><span class="avia-bullet"></span><span class="avia-menu-text">Privacy Policy​​​​​​​​</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+</ul></div></nav>                </div>
+
+                
+            </div>
+
+            <!-- ####### END SOCKET CONTAINER ####### -->
+        </footer>
+
+
+        
+<!-- end wrap_all --></div>
+
+ <script type='text/javascript'>
+ /* <![CDATA[ */  
+var avia_framework_globals = avia_framework_globals || {};
+    avia_framework_globals.frameworkUrl = 'https://www.lntinfotech.com/wp-content/themes/enfold/framework/';
+    avia_framework_globals.installedAt = 'https://www.lntinfotech.com/wp-content/themes/enfold/';
+    avia_framework_globals.ajaxurl = 'https://www.lntinfotech.com/wp-admin/admin-ajax.php';
+/* ]]> */ 
+</script>
+ 
+ <script type='text/javascript'>
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"https:\/\/www.lntinfotech.com\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"cached":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.lntinfotech.com/wp-content/plugins/contact-form-7/includes/js/scripts.js'></script>
+<script type='text/javascript' src='https://www.lntinfotech.com/wp-content/themes/LnTInfotech/js/jquery.min.js'></script>
+<script type='text/javascript' src='https://www.lntinfotech.com/wp-content/themes/LnTInfotech/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='https://www.lntinfotech.com/wp-content/themes/LnTInfotech/js/owl.carousel.js'></script>
+<script type='text/javascript' src='https://www.lntinfotech.com/wp-includes/js/jquery/ui/core.min.js'></script>
+<script type='text/javascript' src='https://www.lntinfotech.com/wp-includes/js/jquery/ui/widget.min.js'></script>
+<script type='text/javascript' src='https://www.lntinfotech.com/wp-includes/js/jquery/ui/position.min.js'></script>
+<script type='text/javascript' src='https://www.lntinfotech.com/wp-includes/js/jquery/ui/menu.min.js'></script>
+<script type='text/javascript' src='https://www.lntinfotech.com/wp-includes/js/dist/vendor/wp-polyfill.min.js'></script>
+<script type='text/javascript'>
+( 'fetch' in window ) || document.write( '<script src="https://www.lntinfotech.com/wp-includes/js/dist/vendor/wp-polyfill-fetch.min.js"></scr' + 'ipt>' );( document.contains ) || document.write( '<script src="https://www.lntinfotech.com/wp-includes/js/dist/vendor/wp-polyfill-node-contains.min.js"></scr' + 'ipt>' );( window.FormData && window.FormData.prototype.keys ) || document.write( '<script src="https://www.lntinfotech.com/wp-includes/js/dist/vendor/wp-polyfill-formdata.min.js"></scr' + 'ipt>' );( Element.prototype.matches && Element.prototype.closest ) || document.write( '<script src="https://www.lntinfotech.com/wp-includes/js/dist/vendor/wp-polyfill-element-closest.min.js"></scr' + 'ipt>' );
+</script>
+<script type='text/javascript' src='https://www.lntinfotech.com/wp-includes/js/dist/dom-ready.min.js'></script>
+<script type='text/javascript' src='https://www.lntinfotech.com/wp-includes/js/dist/a11y.min.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var uiAutocompleteL10n = {"noResults":"No results found.","oneResult":"1 result found. Use up and down arrow keys to navigate.","manyResults":"%d results found. Use up and down arrow keys to navigate.","itemSelected":"Item selected."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.lntinfotech.com/wp-includes/js/jquery/ui/autocomplete.min.js'></script>
+<script type='text/javascript' src='https://www.lntinfotech.com/wp-includes/js/jquery/ui/datepicker.min.js'></script>
+<script type='text/javascript'>
+jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeText":"Close","currentText":"Today","monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"nextText":"Next","prevText":"Previous","dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"dateFormat":"MM d, yy","firstDay":1,"isRTL":false});});
+</script>
+<script type='text/javascript' src='https://www.lntinfotech.com/wp-includes/js/jquery/ui/button.min.js'></script>
+<script type='text/javascript' src='https://www.lntinfotech.com/wp-content/themes/LnTInfotech/js/bootstrap-datepicker.min.js'></script>
+<script type='text/javascript' src='https://www.lntinfotech.com/wp-content/themes/LnTInfotech/js/MonthPicker.min.js'></script>
+<script type='text/javascript' src='https://www.lntinfotech.com/wp-content/themes/LnTInfotech/js/uk-cookie-consent.js'></script>
+<script type='text/javascript' src='https://www.lntinfotech.com/wp-content/themes/LnTInfotech/js/custom.js'></script>
+<script type='text/javascript'>
+var mejsL10n = {"language":"en","strings":{"mejs.install-flash":"You are using a browser that does not have Flash player enabled or installed. Please turn on your Flash player plugin or download the latest version from https:\/\/get.adobe.com\/flashplayer\/","mejs.fullscreen-off":"Turn off Fullscreen","mejs.fullscreen-on":"Go Fullscreen","mejs.download-video":"Download Video","mejs.fullscreen":"Fullscreen","mejs.time-jump-forward":["Jump forward 1 second","Jump forward %1 seconds"],"mejs.loop":"Toggle Loop","mejs.play":"Play","mejs.pause":"Pause","mejs.close":"Close","mejs.time-slider":"Time Slider","mejs.time-help-text":"Use Left\/Right Arrow keys to advance one second, Up\/Down arrows to advance ten seconds.","mejs.time-skip-back":["Skip back 1 second","Skip back %1 seconds"],"mejs.captions-subtitles":"Captions\/Subtitles","mejs.captions-chapters":"Chapters","mejs.none":"None","mejs.mute-toggle":"Mute Toggle","mejs.volume-help-text":"Use Up\/Down Arrow keys to increase or decrease volume.","mejs.unmute":"Unmute","mejs.mute":"Mute","mejs.volume-slider":"Volume Slider","mejs.video-player":"Video Player","mejs.audio-player":"Audio Player","mejs.ad-skip":"Skip ad","mejs.ad-skip-info":["Skip in 1 second","Skip in %1 seconds"],"mejs.source-chooser":"Source Chooser","mejs.stop":"Stop","mejs.speed-rate":"Speed Rate","mejs.live-broadcast":"Live Broadcast","mejs.afrikaans":"Afrikaans","mejs.albanian":"Albanian","mejs.arabic":"Arabic","mejs.belarusian":"Belarusian","mejs.bulgarian":"Bulgarian","mejs.catalan":"Catalan","mejs.chinese":"Chinese","mejs.chinese-simplified":"Chinese (Simplified)","mejs.chinese-traditional":"Chinese (Traditional)","mejs.croatian":"Croatian","mejs.czech":"Czech","mejs.danish":"Danish","mejs.dutch":"Dutch","mejs.english":"English","mejs.estonian":"Estonian","mejs.filipino":"Filipino","mejs.finnish":"Finnish","mejs.french":"French","mejs.galician":"Galician","mejs.german":"German","mejs.greek":"Greek","mejs.haitian-creole":"Haitian Creole","mejs.hebrew":"Hebrew","mejs.hindi":"Hindi","mejs.hungarian":"Hungarian","mejs.icelandic":"Icelandic","mejs.indonesian":"Indonesian","mejs.irish":"Irish","mejs.italian":"Italian","mejs.japanese":"Japanese","mejs.korean":"Korean","mejs.latvian":"Latvian","mejs.lithuanian":"Lithuanian","mejs.macedonian":"Macedonian","mejs.malay":"Malay","mejs.maltese":"Maltese","mejs.norwegian":"Norwegian","mejs.persian":"Persian","mejs.polish":"Polish","mejs.portuguese":"Portuguese","mejs.romanian":"Romanian","mejs.russian":"Russian","mejs.serbian":"Serbian","mejs.slovak":"Slovak","mejs.slovenian":"Slovenian","mejs.spanish":"Spanish","mejs.swahili":"Swahili","mejs.swedish":"Swedish","mejs.tagalog":"Tagalog","mejs.thai":"Thai","mejs.turkish":"Turkish","mejs.ukrainian":"Ukrainian","mejs.vietnamese":"Vietnamese","mejs.welsh":"Welsh","mejs.yiddish":"Yiddish"}};
+</script>
+<script type='text/javascript' src='https://www.lntinfotech.com/wp-includes/js/mediaelement/mediaelement-and-player.min.js'></script>
+<script type='text/javascript' src='https://www.lntinfotech.com/wp-includes/js/mediaelement/mediaelement-migrate.min.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _wpmejsSettings = {"pluginPath":"\/wp-includes\/js\/mediaelement\/","classPrefix":"mejs-","stretching":"responsive"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.lntinfotech.com/wp-content/themes/enfold/js/avia.js'></script>
+<script type='text/javascript' src='https://www.lntinfotech.com/wp-content/themes/enfold/js/shortcodes.js'></script>
+<script type='text/javascript' src='https://www.lntinfotech.com/wp-content/themes/enfold/js/aviapopup/jquery.magnific-popup.min.js'></script>
+<script type='text/javascript' src='https://www.lntinfotech.com/wp-includes/js/mediaelement/wp-mediaelement.min.js'></script>
+<script type='text/javascript' src='https://www.lntinfotech.com/wp-includes/js/comment-reply.min.js'></script>
+<script type='text/javascript' src='https://www.lntinfotech.com/wp-includes/js/wp-embed.min.js'></script>
+<a href='#top' title='Scroll to top' id='scroll-top-link' aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'><span class="avia_hidden_link_text">Scroll to top</span></a>
+
+<div id="fb-root"></div>
+<div class="modal fade" id="videoblock_modal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <!--data-dismiss="modal"-->
+                <button type="button" class="close">&times;</button>
+            </div>
+            <div class="modal-body"></div>
+        </div>      
+    </div>
+</div>
+
+
+
+
+<div class="modal fade modal-fullscreen footer to bottom" id="searchmodal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!--<div class="modal-header">-->
+                <button type="button" class="close close-search-popup" >&times;</button>
+            <!--</div>-->
+            <div class="modal-body search-box" style="padding:0px;">
+                <div class="search-form" id="search-form">
+                    <div class="container">
+                        <input type="text" name="search-text" id="search-text" class="search-text" placeholder="What are you looking for?">
+                        <button type="button" id="search-button" class="search-button">Search</button>
+                        <br>
+                        <!--<span class="search-result-text">Search Result</span><span class="search-result-pagedetails"></span>-->
+                    </div>
+                </div>
+                <div class="search-result-description">
+                    <div class="container">
+                        <div class="search-loader hidden"><img src="https://www.lntinfotech.com/wp-content/themes/LnTInfotech/images/resource-loader.gif" alt="" /></div>
+                        <div class="search-result" id="search-result"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="is_mobile" class="is_mobile" value="0" />
+<input type="hidden" id="is_from_newsletter" class="is_from_newsletter" value="0" />
+
+<!--Eloqua tracking script starts -->                                                                                                 
+<script type="text/javascript">//<![CDATA[
+    var _elqQ = _elqQ || [];
+    _elqQ.push(['elqSetSiteId', '1202999527']);
+    _elqQ.push(['elqTrackPageView']);
     
-    <script type="text/javascript" src="templates/dataexpert/assets/js/jquery.roadmap.min.js"></script>
+    (function () {
+        function async_load() {
+            var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
+            s.src = '//img07.en25.com/i/elqCfg.min.js';
+            var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+        }
+        if (window.addEventListener) window.addEventListener('DOMContentLoaded', async_load, false);
+        else if (window.attachEvent) window.attachEvent('onload', async_load); 
+    })();
+//]]></script>
+
+<!--Eloqua tracking script Ends -->
+
+
+<!-- Start Alexa Certify Javascript -->
 <script type="text/javascript">
+_atrk_opts = { atrk_acct:"sgN1o1QolK10O7", domain:"lntinfotech.com",dynamic: true};
+(function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+</script>
+<noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=sgN1o1QolK10O7" style="display:none" height="1" width="1" alt="" /></noscript>
+<!-- End Alexa Certify Javascript -->  
 
-  var data = [];
-		
-				 
-		
-					data.push({
-				date: '<div class="badge">February 19, 2018</div>',
-				content: '<div class="animated fadeInUp event-cont"> \
-					<div class="panel"> \
-						<div class="panel-body"> \
-							<a target="_blank" href="https://iiex-eu.insightinnovation.org/"> \
-								<span class="panel-image"><img src="upload/images/events/IIeX_Amsterdam_2018.png" alt="IIeX Amsterdam"></span> \
-							</a> \
-							<div class="panel-rice"> \
-								<span class="event-name">IIeX Amsterdam<span class="event-datum"> \
-								February 19-20, 2018</span> \
-								</span> \
-							</div> \
-						</div> \
-					</div> \
-				</div>',
-				
-									active: false,
-					class: ''
-									
-				
-			});
-						data.push({
-				date: '<div class="badge">February 27, 2018</div>',
-				content: '<div class="animated fadeInUp event-cont"> \
-					<div class="panel"> \
-						<div class="panel-body"> \
-							<a target="_blank" href="https://www.quirks.com/events/2018-quirk-s-event-east"> \
-								<span class="panel-image"><img src="upload/images/events/Quirks_New_York_-2018.jpg" alt="Quirk\'s New York"></span> \
-							</a> \
-							<div class="panel-rice"> \
-								<span class="event-name">Quirk\'s New York<span class="event-datum"> \
-								February 27-28, 2018</span> \
-								</span> \
-							</div> \
-						</div> \
-					</div> \
-				</div>',
-				
-									active: false,
-					class: ''
-									
-				
-			});
-						data.push({
-				date: '<div class="badge">March 07, 2018</div>',
-				content: '<div class="animated fadeInUp event-cont"> \
-					<div class="panel"> \
-						<div class="panel-body"> \
-							<a target="_blank" href="https://www.insightshow.co.uk/"> \
-								<span class="panel-image"><img src="upload/images/events/Insight_Show_London_2018.png" alt="Insight Show"></span> \
-							</a> \
-							<div class="panel-rice"> \
-								<span class="event-name">Insight Show<span class="event-datum"> \
-								March 7-8, 2018</span> \
-								</span> \
-							</div> \
-						</div> \
-					</div> \
-				</div>',
-				
-									active: false,
-					class: ''
-									
-				
-			});
-						data.push({
-				date: '<div class="badge">April 05, 2018</div>',
-				content: '<div class="animated fadeInUp event-cont"> \
-					<div class="panel"> \
-						<div class="panel-body"> \
-							<a target="_blank" href="http://www.printemps-etudes.com/en/"> \
-								<span class="panel-image"><img src="upload/images/events/Le_printemps_des_etudes_2018.png" alt="Printemps des Etudes"></span> \
-							</a> \
-							<div class="panel-rice"> \
-								<span class="event-name">Printemps des Etudes<span class="event-datum"> \
-								April 5-6, 2018</span> \
-								</span> \
-							</div> \
-						</div> \
-					</div> \
-				</div>',
-				
-									active: false,
-					class: ''
-									
-				
-			});
-						data.push({
-				date: '<div class="badge">May 10, 2018</div>',
-				content: '<div class="animated fadeInUp event-cont"> \
-					<div class="panel"> \
-						<div class="panel-body"> \
-							<a target="_blank" href="https://ascconference.org/events/dont-ask-gaining-insights-without-questions/"> \
-								<span class="panel-image"><img src="upload/images/events/asc.jpg" alt="ASC Conference"></span> \
-							</a> \
-							<div class="panel-rice"> \
-								<span class="event-name">ASC Conference<span class="event-datum"> \
-								May 10, 2018</span> \
-								</span> \
-							</div> \
-						</div> \
-					</div> \
-				</div>',
-				
-									active: false,
-					class: ''
-									
-				
-			});
-						data.push({
-				date: '<div class="badge">September 23, 2018</div>',
-				content: '<div class="animated fadeInUp event-cont"> \
-					<div class="panel"> \
-						<div class="panel-body"> \
-							<a target="_blank" href="https://www.esomar.org/events/2018/congress-2018/congress-2018-highlights"> \
-								<span class="panel-image"><img src="upload/images/events/ESOMAR2018.png" alt="ESOMAR Congress"></span> \
-							</a> \
-							<div class="panel-rice"> \
-								<span class="event-name">ESOMAR Congress<span class="event-datum"> \
-								September 23-26, 2018</span> \
-								</span> \
-							</div> \
-						</div> \
-					</div> \
-				</div>',
-				
-									active: false,
-					class: ''
-									
-				
-			});
-						data.push({
-				date: '<div class="badge">October 16, 2018</div>',
-				content: '<div class="animated fadeInUp event-cont"> \
-					<div class="panel"> \
-						<div class="panel-body"> \
-							<a target="_blank" href="https://unicomsi.com/2018-unicom-intelligence-user-group-meeting-web.html"> \
-								<span class="panel-image"><img src="upload/images/events/UNICOM_Intelligence_User_Group_Meeting_-_2018.png" alt="Unicom Intelligence User Group Meeting"></span> \
-							</a> \
-							<div class="panel-rice"> \
-								<span class="event-name">Unicom Intelligence User Group Meeting<span class="event-datum"> \
-								October 16, 2018</span> \
-								</span> \
-							</div> \
-						</div> \
-					</div> \
-				</div>',
-				
-									active: false,
-					class: ''
-									
-				
-			});
-						data.push({
-				date: '<div class="badge">October 24, 2018</div>',
-				content: '<div class="animated fadeInUp event-cont"> \
-					<div class="panel"> \
-						<div class="panel-body"> \
-							<a target="_blank" href="https://www.research-results.com/"> \
-								<span class="panel-image"><img src="upload/images/events/randr.jpg" alt="Research & Results"></span> \
-							</a> \
-							<div class="panel-rice"> \
-								<span class="event-name">Research & Results<span class="event-datum"> \
-								October 24-25, 2018</span> \
-								</span> \
-							</div> \
-						</div> \
-					</div> \
-				</div>',
-				
-									active: false,
-					class: ''
-									
-				
-			});
-						data.push({
-				date: '<div class="badge">November 11, 2018</div>',
-				content: '<div class="animated fadeInUp event-cont"> \
-					<div class="panel"> \
-						<div class="panel-body"> \
-							<a target="_blank" href="https://www.esomar.org/events/2018/fusion-2018/fusion-2018-highlights"> \
-								<span class="panel-image"><img src="upload/images/events/esomar-fusion.jpg" alt="ESOMAR Fusion - Big Data"></span> \
-							</a> \
-							<div class="panel-rice"> \
-								<span class="event-name">ESOMAR Fusion - Big Data<span class="event-datum"> \
-								November 11-15, 2018</span> \
-								</span> \
-							</div> \
-						</div> \
-					</div> \
-				</div>',
-				
-									active: false,
-					class: ''
-									
-				
-			});
-						data.push({
-				date: '<div class="badge">November 15, 2018</div>',
-				content: '<div class="animated fadeInUp event-cont"> \
-					<div class="panel"> \
-						<div class="panel-body"> \
-							<a target="_blank" href="https://ascconference.org/events/the-application-of-artificial-intelligence-and-machine-learning-to-"> \
-								<span class="panel-image"><img src="upload/images/events/asc.jpg" alt="ASC Conference"></span> \
-							</a> \
-							<div class="panel-rice"> \
-								<span class="event-name">ASC Conference<span class="event-datum"> \
-								November 15, 2018</span> \
-								</span> \
-							</div> \
-						</div> \
-					</div> \
-				</div>',
-				
-									active: false,
-					class: ''
-									
-				
-			});
-						data.push({
-				date: '<div class="badge">February 12, 2019</div>',
-				content: '<div class="animated fadeInUp event-cont"> \
-					<div class="panel"> \
-						<div class="panel-body"> \
-							<a target="_blank" href="https://www.quirks.com/events/2019-quirk-s-event-london"> \
-								<span class="panel-image"><img src="upload/images/events/Quirks_London_2019.jpg" alt="Quirk\'s London"></span> \
-							</a> \
-							<div class="panel-rice"> \
-								<span class="event-name">Quirk\'s London<span class="event-datum"> \
-								February 12-13, 2019</span> \
-								</span> \
-							</div> \
-						</div> \
-					</div> \
-				</div>',
-				
-									active: false,
-					class: ''
-									
-				
-			});
-						data.push({
-				date: '<div class="badge">February 18, 2019</div>',
-				content: '<div class="animated fadeInUp event-cont"> \
-					<div class="panel"> \
-						<div class="panel-body"> \
-							<a target="_blank" href="https://iiex-eu.insightinnovation.org/"> \
-								<span class="panel-image"><img src="upload/images/events/IIeX_Amsterdam_2019.png" alt="IIeX Amsterdam"></span> \
-							</a> \
-							<div class="panel-rice"> \
-								<span class="event-name">IIeX Amsterdam<span class="event-datum"> \
-								February 18-19, 2019</span> \
-								</span> \
-							</div> \
-						</div> \
-					</div> \
-				</div>',
-				
-									active: false,
-					class: ''
-									
-				
-			});
-						data.push({
-				date: '<div class="badge">February 20, 2019</div>',
-				content: '<div class="animated fadeInUp event-cont"> \
-					<div class="panel"> \
-						<div class="panel-body"> \
-							<a target="_blank" href="https://apac.mrmw.net/"> \
-								<span class="panel-image"><img src="upload/images/events/MRMW_APAC.png" alt="MRMW APAC"></span> \
-							</a> \
-							<div class="panel-rice"> \
-								<span class="event-name">MRMW APAC<span class="event-datum"> \
-								February 20-21, 2019</span> \
-								</span> \
-							</div> \
-						</div> \
-					</div> \
-				</div>',
-				
-									active: false,
-					class: ''
-									
-				
-			});
-						data.push({
-				date: '<div class="badge">March 06, 2019</div>',
-				content: '<div class="animated fadeInUp event-cont"> \
-					<div class="panel"> \
-						<div class="panel-body"> \
-							<a target="_blank" href="https://www.insightshow.co.uk/"> \
-								<span class="panel-image"><img src="upload/images/events/Insight_Show_London_2019.jpg" alt="Insight Show"></span> \
-							</a> \
-							<div class="panel-rice"> \
-								<span class="event-name">Insight Show<span class="event-datum"> \
-								March 6-7, 2019</span> \
-								</span> \
-							</div> \
-						</div> \
-					</div> \
-				</div>',
-				
-									active: false,
-					class: ''
-									
-				
-			});
-						data.push({
-				date: '<div class="badge">April 11, 2019</div>',
-				content: '<div class="animated fadeInUp event-cont"> \
-					<div class="panel"> \
-						<div class="panel-body"> \
-							<a target="_blank" href="http://www.printemps-etudes.com/"> \
-								<span class="panel-image"><img src="upload/images/events/Le_printemps_des_etudes_2018.png" alt="Printemps des Etudes"></span> \
-							</a> \
-							<div class="panel-rice"> \
-								<span class="event-name">Printemps des Etudes<span class="event-datum"> \
-								April 11-12, 2019</span> \
-								</span> \
-							</div> \
-						</div> \
-					</div> \
-				</div>',
-				
-									active: false,
-					class: ''
-									
-				
-			});
-						data.push({
-				date: '<div class="badge">September 08, 2019</div>',
-				content: '<div class="animated fadeInUp event-cont"> \
-					<div class="panel"> \
-						<div class="panel-body"> \
-							<a target="_blank" href="https://www.esomar.org/events/2019/congress-2019/congress-2019-registration"> \
-								<span class="panel-image"><img src="upload/images/events/ESOMAR_Congress_2019.png" alt="ESOMAR Congress"></span> \
-							</a> \
-							<div class="panel-rice"> \
-								<span class="event-name">ESOMAR Congress<span class="event-datum"> \
-								September 8-11, 2019</span> \
-								</span> \
-							</div> \
-						</div> \
-					</div> \
-				</div>',
-				
-									active: false,
-					class: ''
-									
-				
-			});
-						data.push({
-				date: '<div class="badge">September 13, 2019</div>',
-				content: '<div class="animated fadeInUp event-cont"> \
-					<div class="panel"> \
-						<div class="panel-body"> \
-							<a target="_blank" href="https://www.insightsassociation.org/conference/ia-ceo-summit-europe"> \
-								<span class="panel-image"><img src="upload/images/events/IACEOSUMMIT.jpg" alt="IA CEO Summit Europe - Edinburgh"></span> \
-							</a> \
-							<div class="panel-rice"> \
-								<span class="event-name">IA CEO Summit Europe - Edinburgh<span class="event-datum"> \
-								September 11-13, 2019</span> \
-								</span> \
-							</div> \
-						</div> \
-					</div> \
-				</div>',
-				
-									active: false,
-					class: ''
-									
-				
-			});
-						data.push({
-				date: '<div class="badge">September 27, 2019</div>',
-				content: '<div class="animated fadeInUp event-cont"> \
-					<div class="panel"> \
-						<div class="panel-body"> \
-							<a target="_blank" href="https://dataflowkonferencia.hu/"> \
-								<span class="panel-image"><img src="upload/images/events/DataFlow_cover-k%C3%A9p.jpg" alt="DataFlow Konferencia - Debrecen"></span> \
-							</a> \
-							<div class="panel-rice"> \
-								<span class="event-name">DataFlow Konferencia - Debrecen<span class="event-datum"> \
-								September 26-27, 2019</span> \
-								</span> \
-							</div> \
-						</div> \
-					</div> \
-				</div>',
-				
-									active: false,
-					class: ''
-									
-				
-			});
-						data.push({
-				date: '<div class="badge">October 18, 2019</div>',
-				content: '<div class="animated fadeInUp event-cont"> \
-					<div class="panel"> \
-						<div class="panel-body"> \
-							<a target="_blank" href="https://crunchconf.com/"> \
-								<span class="panel-image"><img src="upload/images/events/crunch.png" alt="Crunch Conference – Budapest"></span> \
-							</a> \
-							<div class="panel-rice"> \
-								<span class="event-name">Crunch Conference – Budapest<span class="event-datum"> \
-								October 16-18, 2019</span> \
-								</span> \
-							</div> \
-						</div> \
-					</div> \
-				</div>',
-				
-									active: false,
-					class: ''
-									
-				
-			});
-						data.push({
-				date: '<div class="badge">October 24, 2019</div>',
-				content: '<div class="animated fadeInUp event-cont"> \
-					<div class="panel"> \
-						<div class="panel-body"> \
-							<a target="_blank" href="https://www.research-results.com/index.html"> \
-								<span class="panel-image"><img src="upload/images/events/RR19_MESSE_LOGO_CMYK_klein.jpg" alt="Research & Results 2019 - Munich"></span> \
-							</a> \
-							<div class="panel-rice"> \
-								<span class="event-name">Research & Results 2019 - Munich<span class="event-datum"> \
-								October 23-24, 2019</span> \
-								</span> \
-							</div> \
-						</div> \
-					</div> \
-				</div>',
-				
-									active: false,
-					class: ''
-									
-				
-			});
-						data.push({
-				date: '<div class="badge">October 29, 2019</div>',
-				content: '<div class="animated fadeInUp event-cont"> \
-					<div class="panel"> \
-						<div class="panel-body"> \
-							<a target="_blank" href="https://www.assirmforum.it/en/"> \
-								<span class="panel-image"><img src="upload/images/events/logo-assirmr-forum-1.png" alt="Assirm Marketing Research Forum – Milan"></span> \
-							</a> \
-							<div class="panel-rice"> \
-								<span class="event-name">Assirm Marketing Research Forum – Milan<span class="event-datum"> \
-								October 29, 2019</span> \
-								</span> \
-							</div> \
-						</div> \
-					</div> \
-				</div>',
-				
-									active: false,
-					class: ''
-									
-				
-			});
-						data.push({
-				date: '<div class="badge">October 30, 2019</div>',
-				content: '<div class="animated fadeInUp event-cont"> \
-					<div class="panel"> \
-						<div class="panel-body"> \
-							<a target="_blank" href="https://www.powerplatformworldtour.com/ppworldtour/locations/vienna"> \
-								<span class="panel-image"><img src="upload/images/events/WorldTour-PowerPlatform-Logo_Full-Color.png" alt="Power Platform World Tour – Vienna"></span> \
-							</a> \
-							<div class="panel-rice"> \
-								<span class="event-name">Power Platform World Tour – Vienna<span class="event-datum"> \
-								October 29-30, 2019</span> \
-								</span> \
-							</div> \
-						</div> \
-					</div> \
-				</div>',
-				
-									active: false,
-					class: ''
-									
-				
-			});
-						data.push({
-				date: '<div class="badge">November 14, 2019</div>',
-				content: '<div class="animated fadeInUp event-cont"> \
-					<div class="panel"> \
-						<div class="panel-body"> \
-							<a target="_blank" href="https://www.esomar.org/events/2019/fusion-2019/fusion-2019-highlights"> \
-								<span class="panel-image"><img src="upload/images/events/ESOMAR-FUSION-2019.png" alt="ESOMAR Fusion -  Madrid"></span> \
-							</a> \
-							<div class="panel-rice"> \
-								<span class="event-name">ESOMAR Fusion -  Madrid<span class="event-datum"> \
-								November 10-14, 2019</span> \
-								</span> \
-							</div> \
-						</div> \
-					</div> \
-				</div>',
-				
-									active: false,
-					class: ''
-									
-				
-			});
-						data.push({
-				date: '<div class="badge">November 14, 2019</div>',
-				content: '<div class="animated fadeInUp event-cont"> \
-					<div class="panel"> \
-						<div class="panel-body"> \
-							<a target="_blank" href="https://budapestbiforum.hu/2019/en/"> \
-								<span class="panel-image"><img src="upload/images/events/bp-bi-forum-hu-2019.png" alt="BI Forum - Budapest"></span> \
-							</a> \
-							<div class="panel-rice"> \
-								<span class="event-name">BI Forum - Budapest<span class="event-datum"> \
-								November 12-14, 2019</span> \
-								</span> \
-							</div> \
-						</div> \
-					</div> \
-				</div>',
-				
-									active: false,
-					class: ''
-									
-				
-			});
-						data.push({
-				date: '<div class="badge">November 14, 2019</div>',
-				content: '<div class="animated fadeInUp event-cont"> \
-					<div class="panel"> \
-						<div class="panel-body"> \
-							<a target="_blank" href="https://ascconference.org/"> \
-								<span class="panel-image"><img src="upload/images/events/asc%20(1).jpg" alt="ASC- London"></span> \
-							</a> \
-							<div class="panel-rice"> \
-								<span class="event-name">ASC- London<span class="event-datum"> \
-								November 14, 2019</span> \
-								</span> \
-							</div> \
-						</div> \
-					</div> \
-				</div>',
-				
-									active: false,
-					class: ''
-									
-				
-			});
-						data.push({
-				date: '<div class="badge">January 24, 2020</div>',
-				content: '<div class="animated fadeInUp event-cont"> \
-					<div class="panel"> \
-						<div class="panel-body"> \
-							<a target="_blank" href="https://www.sqlsaturday.com/917/eventhome.aspx"> \
-								<span class="panel-image"><img src="upload/images/events/sqlsat917_web.jpg" alt="SQLSATURDAY - Vienna"></span> \
-							</a> \
-							<div class="panel-rice"> \
-								<span class="event-name">SQLSATURDAY - Vienna<span class="event-datum"> \
-								January 24, 2020</span> \
-								</span> \
-							</div> \
-						</div> \
-					</div> \
-				</div>',
-				
-									active: true,
-    			class: 'next-event_'
-									
-				
-			});
-						data.push({
-				date: '<div class="badge">February 11, 2020</div>',
-				content: '<div class="animated fadeInUp event-cont"> \
-					<div class="panel"> \
-						<div class="panel-body"> \
-							<a target="_blank" href="https://www.quirks.com/events/2020-quirk-s-event-london"> \
-								<span class="panel-image"><img src="upload/images/events/final-Quirks-Event-1.png" alt="Quirk\'s Event – London"></span> \
-							</a> \
-							<div class="panel-rice"> \
-								<span class="event-name">Quirk\'s Event – London<span class="event-datum"> \
-								February 11-12, 2020</span> \
-								</span> \
-							</div> \
-						</div> \
-					</div> \
-				</div>',
-				
-									active: true,
-    			class: 'next-event_'
-									
-				
-			});
-						data.push({
-				date: '<div class="badge">February 25, 2020</div>',
-				content: '<div class="animated fadeInUp event-cont"> \
-					<div class="panel"> \
-						<div class="panel-body"> \
-							<a target="_blank" href="https://iiex-eu.insightinnovation.org/"> \
-								<span class="panel-image"><img src="upload/images/events/iiex-2020-NA.png" alt="IIeX - Amsterdam"></span> \
-							</a> \
-							<div class="panel-rice"> \
-								<span class="event-name">IIeX - Amsterdam<span class="event-datum"> \
-								February 25-26, 2020</span> \
-								</span> \
-							</div> \
-						</div> \
-					</div> \
-				</div>',
-				
-									active: true,
-    			class: 'next-event_'
-									
-				
-			});
-						data.push({
-				date: '<div class="badge">April 02, 2020</div>',
-				content: '<div class="animated fadeInUp event-cont"> \
-					<div class="panel"> \
-						<div class="panel-body"> \
-							<a target="_blank" href="http://www.printemps-etudes.com/"> \
-								<span class="panel-image"><img src="upload/images/events/Le_printemps_des_etudes_2019.png" alt="Le Printemps des études - Paris"></span> \
-							</a> \
-							<div class="panel-rice"> \
-								<span class="event-name">Le Printemps des études - Paris<span class="event-datum"> \
-								April 2-3, 2020</span> \
-								</span> \
-							</div> \
-						</div> \
-					</div> \
-				</div>',
-				
-									active: true,
-    			class: 'next-event_'
-									
-				
-			});
-						data.push({
-				date: '<div class="badge">May 14, 2020</div>',
-				content: '<div class="animated fadeInUp event-cont"> \
-					<div class="panel"> \
-						<div class="panel-body"> \
-							<a target="_blank" href="https://ascconference.org/"> \
-								<span class="panel-image"><img src="upload/images/events/asc%20(1).jpg" alt="ASC Conference - London"></span> \
-							</a> \
-							<div class="panel-rice"> \
-								<span class="event-name">ASC Conference - London<span class="event-datum"> \
-								May 14, 2020</span> \
-								</span> \
-							</div> \
-						</div> \
-					</div> \
-				</div>',
-				
-									active: true,
-    			class: 'next-event_'
-									
-				
-			});
-						data.push({
-				date: '<div class="badge">September 13, 2020</div>',
-				content: '<div class="animated fadeInUp event-cont"> \
-					<div class="panel"> \
-						<div class="panel-body"> \
-							<a target="_blank" href="https://www.esomar.org/events/2020/congress-2020/congress-2020-location"> \
-								<span class="panel-image"><img src="upload/images/events/esomarTOronto.png" alt="ESOMAR Congress - Toronto"></span> \
-							</a> \
-							<div class="panel-rice"> \
-								<span class="event-name">ESOMAR Congress - Toronto<span class="event-datum"> \
-								September 13-16, 2020</span> \
-								</span> \
-							</div> \
-						</div> \
-					</div> \
-				</div>',
-				
-									active: true,
-    			class: 'next-event_'
-									
-				
-			});
-					
-		
-   
-  
-  $(document).ready(function() {
-    $(".event-roadmap").roadmap(data,
-      {
-      	eventsPerSlide: 5,
-      	slide: 6,
-        nextArrow: '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>',
-        prevArrow: '<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>',
-      	rootClass: 'roadmap',
-      	orientation: 'horizontal',
-      	eventTemplate: '<div class="event"> \
-      			<div class="event-content">####CONTENT###</div> \
-      		</div>'
-      }
-    );
+<!-- Start crazyegg Javascript -->
+<script type="text/javascript" src="//script.crazyegg.com/pages/scripts/0070/7566.js" async="async"></script>
+<!-- End crazyegg Javascript -->  
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZZF89"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<script>
+  gtag('event', 'conversion', {
+    'allow_custom_scripts': true,
+    'u1': '[PageView]',
+    'send_to': 'DC-9135772/invmedia/leadd0+standard'
   });
-
-
 </script>
 
-<script>
-$(window).load(function() {
-	$("#beforeafter").twentytwenty({
-		before_label: 'Brief',
-		after_label: 'Result',
-		handle_color: '#000'
-	});
-});
+<!-- Marketing Manager Tracking Code Start -->
+<script type="text/javascript">
+!function () { var e, t; e = document.createElement("script"), e.type = "text/javascript", e.async = !0, e.defer = !0, e.src = "https://d1vg5xiq7qffdj.cloudfront.net/Asyncload.js?fpkey=" + String((new Date).getMonth() + 1) + String((new Date).getFullYear()) + String(Math.round(parseInt((new Date).getDate() / 7), 0) + 1) + "&encsid=3CaOaVnL0DY,&enccid=d21y5mHiFi8,&wsid=MjQ2&trackingUrl=HIfoicOddMFsPj6pIhUag2wljpopK4yI9456300cf5g,", t = document.getElementsByTagName("head")[0], t.appendChild(e, t) }();
+</script><noscript><p><img src="https://app1.mirabelanalytics.com/lnktrk.php?idsite=246" style="border:0;" alt="" /></p></noscript>
+<!-- Marketing Manager Tracking Code End -->
+
+<script type="text/javascript">
+_linkedin_partner_id = "58006";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script><script type="text/javascript">
+(function(){var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})();
 </script>
-
-<script>
-
-if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    document.getElementById("scrollUp").style.display = "block";
-  } else {
-    document.getElementById("scrollUp").style.display = "none";
-  }
-
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-
-
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    document.getElementById("scrollUp").style.display = "block";
-  } else {
-    document.getElementById("scrollUp").style.display = "none";
-  }
-}
-
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
-</script>
-
-<script src="templates/dataexpert/assets/js/jquery.rwdImageMaps.min.js"></script>
-<script>
-
-$(document).ready(function(e) {
-	$('img[usemap]').rwdImageMaps();
-	
-	$('area').on('click', function() {
-		//alert($(this).attr('alt') + ' clicked');
-	});
-});
-
-</script>
-
-<script>
-
-$('#videoModal').on('shown.bs.modal', function () {
-	$('#video1')[0].play();
-})
-$('#videoModal').on('hidden.bs.modal', function () {
-  $('#video1')[0].pause();
-})
-
-/*
-var bunnyVideo = document.getElementById("bVideo");
-
-function playPause() {
-  var el = document.getElementById("playButton");
-  if (bunnyVideo.paused) {
-    bunnyVideo.play();
-    el.className ="";
-  } else {
-  
-    bunnyVideo.pause();
-    el.className = "playButton";
-  }
-}
-
-bunnyVideo.addEventListener("click", playPause, false);
-
-*/
-
-</script>
-	
-    
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=58006&fmt=gif" />
+</noscript>
+<!--
+Event snippet for Lead on https://www.lntinfotech.com/thankyou/: Please do not remove.
+Place this snippet on pages with events you’re tracking. 
+Creation date: 01/04/2019
+-->
+<noscript>
+<img src="https://ad.doubleclick.net/ddm/activity/src=9135772;type=invmedia;cat=leadd0;u2=[Lead];u1=[PageView];dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;ord=1?" width="1" height="1" alt=""/>
+</noscript>
+<!-- End of event snippet: Please do not remove -->
 </body>
 </html>
+<!--
+Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
+
+Object Caching 105/442 objects using disk
+Page Caching using disk: enhanced (SSL caching disabled) 
+Content Delivery Network via Amazon Web Services: CloudFront: www.lntinfotech.com
+Minified using disk
+Database Caching using disk (Request-wide modification query)
+
+Served from: www.lntinfotech.com @ 2020-01-19 18:22:44 by W3 Total Cache
+-->
